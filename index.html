@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STACKLY Healthcare — Coordinated Medical Care That Puts You First</title>
+  <meta name="description" content="STACKLY Healthcare delivers coordinated clinical excellence across cardiology, neurology, pediatrics, diagnostics, and organized appointment management.">
+  
+  <!-- Google Fonts: DM Serif Display & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       SITE NAVBAR
+       Brand Logo on left end, 5 centered nav links, Login button on right end
+       ========================================================================= -->
+  <header class="site-header" id="main-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-link" id="brand-logo-link">
+        <img src="Assets/Brand-logo.webp" alt="STACKLY Healthcare Logo" class="brand-logo-img" width="160" height="38">
+      </a>
+
+      <!-- 5 Centered Navlinks -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active" id="nav-home">Home</a>
+        <a href="Service.html" class="nav-link" id="nav-services">Services</a>
+        <a href="Doctors.html" class="nav-link" id="nav-doctors">Doctors</a>
+        <a href="About.html" class="nav-link" id="nav-about">About</a>
+        <a href="Contact.html" class="nav-link" id="nav-contact">Contact</a>
+      </nav>
+
+      <!-- Right Login Button & Mobile Toggle -->
+      <div class="nav-actions">
+        <a href="Login.html" class="nav-login-btn" id="nav-login-btn">
+          <i class="fa-regular fa-user"></i>
+          <span>Login</span>
+        </a>
+      </div>
+
+      <button class="mobile-nav-toggle" id="mobile-toggle-btn" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="Service.html" class="nav-link">Services</a>
+      <a href="Doctors.html" class="nav-link">Doctors</a>
+      <a href="About.html" class="nav-link">About</a>
+      <a href="Contact.html" class="nav-link">Contact</a>
+      <a href="appointments.html" class="nav-link" style="color: var(--accent);">Book Appointment</a>
+      <a href="Login.html" class="nav-login-btn">
+        <i class="fa-regular fa-user"></i>
+        <span>Login</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- =======================================================================
+         HERO SECTION: Healthcare That Puts You First
+         Full-width healthcare image, prominent headline, description, 2 CTAs
+         ======================================================================= -->
+    <section class="home-hero" id="hero-section">
+      <div class="home-hero-bg-wrapper">
+        <img src="assets/images/hero/hero-home.webp" alt="STACKLY Healthcare Modern Facility" class="home-hero-bg" width="1400" height="800">
+        <div class="home-hero-overlay"></div>
+      </div>
+
+      <div class="container">
+        <div class="home-hero-content">
+          <div class="home-hero-badge">
+            <i class="fa-solid fa-shield-heart"></i>
+            <span>Coordinated Clinical Care</span>
+          </div>
+
+          <h1 class="home-hero-title">
+            Healthcare That <span>Puts You First</span>
+          </h1>
+
+          <p class="home-hero-desc">
+            Experience comprehensive medical excellence where advanced diagnostics, dedicated physician specialists, and coordinated patient care unite seamlessly for your well-being.
+          </p>
+
+          <div class="home-hero-ctas">
+            <a href="appointments.html" class="btn btn-primary btn-lg" id="hero-book-btn">
+              <i class="fa-regular fa-calendar-check"></i>
+              <span>Book Appointment</span>
+            </a>
+            <a href="Service.html" class="btn btn-outline" style="border-color: rgba(244,248,247,0.7); color: #F4F8F7;" id="hero-services-btn">
+              <span>Explore Services</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="hero-highlights">
+            <div class="hero-highlight-item">
+              <div class="hero-highlight-icon"><i class="fa-solid fa-user-doctor"></i></div>
+              <div class="hero-highlight-text">
+                <h5>85+ Specialists</h5>
+                <p>Board-certified experts</p>
+              </div>
+            </div>
+            <div class="hero-highlight-item">
+              <div class="hero-highlight-icon"><i class="fa-solid fa-laptop-medical"></i></div>
+              <div class="hero-highlight-text">
+                <h5>Digital Records</h5>
+                <p>Instant patient access</p>
+              </div>
+            </div>
+            <div class="hero-highlight-item">
+              <div class="hero-highlight-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+              <div class="hero-highlight-text">
+                <h5>24/7 Assistance</h5>
+                <p>Prompt clinical triage</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         01. MEDICAL DEPARTMENTS
+         Card grid for Cardiology, Neurology, Orthopedics, Pediatrics, General Medicine, Diagnostics
+         ======================================================================= -->
+    <section class="section-padding" id="departments-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag"><i class="fa-solid fa-stethoscope"></i> Clinical Specialties</span>
+          <h2 class="section-title">Medical Departments</h2>
+          <p class="section-subtitle">Dedicated specialty centers staffed by multidisciplinary medical teams using cutting-edge medical technologies.</p>
+        </div>
+
+        <div class="grid-3">
+          <!-- Cardiology -->
+          <div class="department-card">
+            <div class="dept-img-wrap">
+              <img src="assets/images/departments/cardiology.webp" alt="Cardiology Department" loading="lazy" width="600" height="400">
+              <span class="dept-badge">Heart & Vascular</span>
+            </div>
+            <div class="dept-body">
+              <h3>Cardiology</h3>
+              <p>Comprehensive cardiovascular care including preventive screenings, non-invasive imaging, and advanced cardiac catheterization.</p>
+              <a href="Service.html#cardiology" class="dept-link">
+                <span>Explore Specialty</span> <i class="fa-solid fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Neurology -->
+          <div class="department-card">
+            <div class="dept-img-wrap">
+              <img src="assets/images/departments/neurology.webp" alt="Neurology Department" loading="lazy" width="600" height="400">
+              <span class="dept-badge">Brain & Spine</span>
+            </div>
+            <div class="dept-body">
+              <h3>Neurology</h3>
+              <p>Specialized diagnosis and treatment for acute stroke, epilepsy, neuro-muscular conditions, and spine rehabilitation.</p>
+              <a href="Service.html#neurology" class="dept-link">
+                <span>Explore Specialty</span> <i class="fa-solid fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Orthopedics -->
+          <div class="department-card">
+            <div class="dept-img-wrap">
+              <img src="assets/images/departments/orthopedics.webp" alt="Orthopedics Department" loading="lazy" width="600" height="400">
+              <span class="dept-badge">Bones & Joints</span>
+            </div>
+            <div class="dept-body">
+              <h3>Orthopedics</h3>
+              <p>State-of-the-art robotic joint replacements, sports injury arthroscopy, and coordinated physical therapy recovery programs.</p>
+              <a href="Service.html#orthopedics" class="dept-link">
+                <span>Explore Specialty</span> <i class="fa-solid fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Pediatrics -->
+          <div class="department-card">
+            <div class="dept-img-wrap">
+              <img src="assets/images/departments/pediatrics.webp" alt="Pediatrics Department" loading="lazy" width="600" height="400">
+              <span class="dept-badge">Child Health</span>
+            </div>
+            <div class="dept-body">
+              <h3>Pediatrics</h3>
+              <p>Compassionate care for infants, children, and adolescents, from milestone assessments to immunizations and urgent care.</p>
+              <a href="Service.html#pediatrics" class="dept-link">
+                <span>Explore Specialty</span> <i class="fa-solid fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- General Medicine -->
+          <div class="department-card">
+            <div class="dept-img-wrap">
+              <img src="assets/images/departments/general-medicine.webp" alt="General Medicine Department" loading="lazy" width="600" height="400">
+              <span class="dept-badge">Primary Care</span>
+            </div>
+            <div class="dept-body">
+              <h3>General Medicine</h3>
+              <p>Whole-person preventative care, lifestyle consultation, chronic metabolic management, and comprehensive family health.</p>
+              <a href="Service.html#medicine" class="dept-link">
+                <span>Explore Specialty</span> <i class="fa-solid fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Diagnostics -->
+          <div class="department-card">
+            <div class="dept-img-wrap">
+              <img src="assets/images/departments/diagnostics.webp" alt="Diagnostics Department" loading="lazy" width="600" height="400">
+              <span class="dept-badge">Imaging & Lab</span>
+            </div>
+            <div class="dept-body">
+              <h3>Diagnostics</h3>
+              <p>High-resolution 3T MRI, 128-slice CT scans, automated clinical chemistry, and rapid pathology reporting under one roof.</p>
+              <a href="Service.html#diagnostics" class="dept-link">
+                <span>Explore Specialty</span> <i class="fa-solid fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         02. MEET OUR DOCTORS
+         Doctor cards with specialization, qualifications, availability, and actions
+         ======================================================================= -->
+    <section class="section-padding" style="background-color: var(--surface-alt);" id="doctors-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag"><i class="fa-solid fa-user-doctor"></i> Medical Leadership</span>
+          <h2 class="section-title">Meet Our Doctors</h2>
+          <p class="section-subtitle">Board-certified clinicians committed to compassionate, patient-centered healthcare delivery.</p>
+        </div>
+
+        <div class="grid-3">
+          <!-- Doctor 1 -->
+          <div class="doctor-card">
+            <div class="doctor-avatar-wrap">
+              <img src="assets/images/doctors/dr-sarah-cardiology.webp" alt="Dr. Sarah Jenkins" loading="lazy" width="400" height="280">
+              <div class="doctor-badge-status"><span class="status-dot"></span> Available</div>
+            </div>
+            <div class="doctor-info">
+              <div class="doctor-specialty">Cardiology</div>
+              <h3 class="doctor-name">Dr. Sarah Jenkins</h3>
+              <p class="doctor-quals">MD, FACC, Harvard Medical School</p>
+              <div class="doctor-availability">
+                <i class="fa-regular fa-clock" style="color: var(--accent);"></i>
+                <span>Mon - Thu, 09:00 AM - 02:00 PM</span>
+              </div>
+              <div class="doctor-actions">
+                <a href="Doctors.html" class="btn btn-outline btn-sm">View Profile</a>
+                <a href="appointments.html?doctor=doc-1" class="btn btn-primary btn-sm">Book Visit</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Doctor 2 -->
+          <div class="doctor-card">
+            <div class="doctor-avatar-wrap">
+              <img src="assets/images/doctors/dr-rajesh-neurology.webp" alt="Dr. Rajesh Sharma" loading="lazy" width="400" height="280">
+              <div class="doctor-badge-status"><span class="status-dot"></span> Available</div>
+            </div>
+            <div class="doctor-info">
+              <div class="doctor-specialty">Neurology</div>
+              <h3 class="doctor-name">Dr. Rajesh Sharma</h3>
+              <p class="doctor-quals">MBBS, MS, MCh (Neurosurgery), AIIMS</p>
+              <div class="doctor-availability">
+                <i class="fa-regular fa-clock" style="color: var(--accent);"></i>
+                <span>Mon, Wed, Fri, 10:00 AM - 04:00 PM</span>
+              </div>
+              <div class="doctor-actions">
+                <a href="Doctors.html" class="btn btn-outline btn-sm">View Profile</a>
+                <a href="appointments.html?doctor=doc-2" class="btn btn-primary btn-sm">Book Visit</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Doctor 3 -->
+          <div class="doctor-card">
+            <div class="doctor-avatar-wrap">
+              <img src="assets/images/doctors/dr-marcus-orthopedics.webp" alt="Dr. Marcus Vance" loading="lazy" width="400" height="280">
+              <div class="doctor-badge-status"><span class="status-dot"></span> Available</div>
+            </div>
+            <div class="doctor-info">
+              <div class="doctor-specialty">Orthopedics</div>
+              <h3 class="doctor-name">Dr. Marcus Vance</h3>
+              <p class="doctor-quals">MD, FRCS (Orth), Johns Hopkins</p>
+              <div class="doctor-availability">
+                <i class="fa-regular fa-clock" style="color: var(--accent);"></i>
+                <span>Tue, Thu, Sat, 08:30 AM - 01:30 PM</span>
+              </div>
+              <div class="doctor-actions">
+                <a href="Doctors.html" class="btn btn-outline btn-sm">View Profile</a>
+                <a href="appointments.html?doctor=doc-3" class="btn btn-primary btn-sm">Book Visit</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 48px;">
+          <a href="Doctors.html" class="btn btn-dark btn-lg">
+            <span>View All Clinical Faculty</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         03. APPOINTMENT BOOKING JOURNEY (3 CLEAR STEPS)
+         Choose Department -> Select Doctor -> Choose Slot
+         ======================================================================= -->
+    <section class="section-padding" id="journey-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag"><i class="fa-solid fa-list-check"></i> Effortless Scheduling</span>
+          <h2 class="section-title">A Clear 3-Step Journey</h2>
+          <p class="section-subtitle">Experience a frictionless booking pathway designed around your personal schedule.</p>
+        </div>
+
+        <div class="journey-steps">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <span class="step-number">01</span>
+            <div class="step-icon"><i class="fa-solid fa-hospital-user"></i></div>
+            <h3>Choose Department</h3>
+            <p>Select your required medical specialty based on your symptoms or preventative health goals.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <span class="step-number">02</span>
+            <div class="step-icon"><i class="fa-solid fa-user-doctor"></i></div>
+            <h3>Select Specialist</h3>
+            <p>Review physician credentials, sub-specializations, and patient ratings to find your best fit.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <span class="step-number">03</span>
+            <div class="step-icon"><i class="fa-regular fa-calendar-check"></i></div>
+            <h3>Confirm Time Slot</h3>
+            <p>Pick an available morning or afternoon consultation slot with instant digital confirmation.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 48px;">
+          <a href="appointments.html" class="btn btn-primary btn-lg">
+            <span>Begin Appointment Booking</span>
+            <i class="fa-solid fa-calendar-plus"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         04. HEALTHCARE SERVICES
+         Diagnostics, Laboratory, Preventive checks, Consultations, Follow-up
+         ======================================================================= -->
+    <section class="section-padding" style="background-color: var(--surface-alt);" id="services-summary">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag"><i class="fa-solid fa-briefcase-medical"></i> Clinical Offerings</span>
+          <h2 class="section-title">Comprehensive Healthcare Services</h2>
+          <p class="section-subtitle">Holistic healthcare continuum spanning preventive checks, diagnostics, and longitudinal care.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-microscope"></i></div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 12px;">Diagnostics & Imaging</h3>
+            <p style="margin-bottom: 20px;">State-of-the-art MRI, digital X-rays, ultrasound, and echocardiography providing reliable diagnostic certainty.</p>
+            <a href="Service.html" class="dept-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-vial-virus"></i></div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 12px;">Laboratory Services</h3>
+            <p style="margin-bottom: 20px;">Automated clinical pathology, biochemistry, hematology, and genomic testing with rapid turnaround.</p>
+            <a href="Service.html" class="dept-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 12px;">Preventive Health Checkups</h3>
+            <p style="margin-bottom: 20px;">Customized annual wellness packages tailored to age, gender, and personal risk markers.</p>
+            <a href="Service.html" class="dept-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-comments"></i></div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 12px;">Specialist Consultations</h3>
+            <p style="margin-bottom: 20px;">In-depth, unhurried physician evaluations covering complex diagnoses and second opinions.</p>
+            <a href="Service.html" class="dept-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-notes-medical"></i></div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 12px;">Follow-up & Chronic Care</h3>
+            <p style="margin-bottom: 20px;">Structured continuous monitoring programs for hypertension, diabetes, asthma, and arthritis.</p>
+            <a href="Service.html" class="dept-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-truck-medical"></i></div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 12px;">Coordinated Emergency Care</h3>
+            <p style="margin-bottom: 20px;">24/7 acute trauma assessment, certified resuscitation suites, and immediate clinical triage.</p>
+            <a href="Service.html" class="dept-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         05. DIGITAL PATIENT CARE
+         Appointment history, medical records, prescriptions, communication
+         ======================================================================= -->
+    <section class="section-padding" id="digital-care-section">
+      <div class="container">
+        <div class="digital-care-split">
+          <div class="digital-care-image-col">
+            <img src="assets/images/patient-care/patient-support.webp" alt="Digital Health Portal" class="digital-care-main-img" width="600" height="420" loading="lazy">
+            <div class="floating-stat-card">
+              <div class="floating-icon"><i class="fa-solid fa-lock"></i></div>
+              <div>
+                <strong style="color: #123C46; font-size: 1.05rem; display: block;">Protected Records</strong>
+                <span style="color: rgba(18,60,70,0.65); font-size: 0.8rem;">Full privacy compliance</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="digital-care-text-col">
+            <span class="badge-tag"><i class="fa-solid fa-mobile-screen-button"></i> Connected Health</span>
+            <h2 class="section-title">Digital Patient Care, Always In Reach</h2>
+            <p class="section-subtitle" style="margin-bottom: 24px;">
+              Manage every aspect of your healthcare journey through our unified patient portal. Never worry about misplacing physical records or prescriptions again.
+            </p>
+
+            <div class="feature-check-list">
+              <div class="feature-check-item">
+                <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                <div>
+                  <h4 style="font-size: 1.05rem; margin-bottom: 2px;">Appointment History & Reminders</h4>
+                  <p style="font-size: 0.92rem;">Review upcoming consultations, past visit logs, and automated appointment reminders.</p>
+                </div>
+              </div>
+
+              <div class="feature-check-item">
+                <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                <div>
+                  <h4 style="font-size: 1.05rem; margin-bottom: 2px;">Direct Medical Records Access</h4>
+                  <p style="font-size: 0.92rem;">Securely view lab test results, imaging reports, and physician consultation notes in real time.</p>
+                </div>
+              </div>
+
+              <div class="feature-check-item">
+                <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                <div>
+                  <h4 style="font-size: 1.05rem; margin-bottom: 2px;">Digital Prescriptions & Refills</h4>
+                  <p style="font-size: 0.92rem;">Electronic prescription management with direct instructions and medication tracking.</p>
+                </div>
+              </div>
+
+              <div class="feature-check-item">
+                <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                <div>
+                  <h4 style="font-size: 1.05rem; margin-bottom: 2px;">Direct Physician Communication</h4>
+                  <p style="font-size: 0.92rem;">Communicate follow-up updates with your care team between scheduled appointments.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 36px;">
+              <a href="Login.html" class="btn btn-primary">
+                <span>Access Patient Portal</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         06. WHY CHOOSE US
+         Qualified pros, coordinated care, accessible info, organized management
+         ======================================================================= -->
+    <section class="section-padding" style="background-color: var(--surface-alt);" id="why-choose-us">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag"><i class="fa-solid fa-award"></i> The STACKLY Standard</span>
+          <h2 class="section-title">Why Patients Choose Us</h2>
+          <p class="section-subtitle">Built upon decades of combined clinical expertise, modern infrastructure, and human compassion.</p>
+        </div>
+
+        <div class="why-us-grid">
+          <div class="why-us-card">
+            <div class="why-icon"><i class="fa-solid fa-certificate"></i></div>
+            <h4>Qualified Specialists</h4>
+            <p>Internationally accredited physicians and surgeons adhering to rigorous clinical guidelines.</p>
+          </div>
+
+          <div class="why-us-card">
+            <div class="why-icon"><i class="fa-solid fa-arrows-split-up-and-left"></i></div>
+            <h4>Coordinated Care</h4>
+            <p>Our multidisciplinary team works as one unit so you never have to repeat your medical history.</p>
+          </div>
+
+          <div class="why-us-card">
+            <div class="why-icon"><i class="fa-solid fa-folder-open"></i></div>
+            <h4>Accessible Records</h4>
+            <p>Instant digital access to your clinical observations and lab results whenever you need them.</p>
+          </div>
+
+          <div class="why-us-card">
+            <div class="why-icon"><i class="fa-solid fa-calendar-check"></i></div>
+            <h4>Organized Scheduling</h4>
+            <p>Zero overbooking policy ensuring dedicated, focused consultation time with your doctor.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         07. PATIENT EXPERIENCES
+         Testimonial cards with sample content clearly identified
+         ======================================================================= -->
+    <section class="section-padding" id="testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag"><i class="fa-solid fa-quote-left"></i> Patient Feedback</span>
+          <h2 class="section-title">Patient Experiences</h2>
+          <p class="section-subtitle">Real experiences and feedback from individuals who entrusted their recovery to STACKLY Healthcare. (Sample illustrative reviews).</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                “Dr. Jenkins and the cardiology team handled my treatment with exceptional precision. The appointment booking was seamless, and having my lab reports on my phone gave my family total peace of mind.”
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">AK</div>
+              <div class="author-info">
+                <h5>Arun Kumar</h5>
+                <span>Cardiology Patient • Sample Review</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                “From diagnosis to surgery and physical therapy, Dr. Marcus Vance coordinated everything brilliantly. I was back walking without discomfort weeks ahead of my expectation.”
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">MR</div>
+              <div class="author-info">
+                <h5>Meera Raghavan</h5>
+                <span>Orthopedics Patient • Sample Review</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testimonial-text">
+                “Finding a pediatrician who genuinely listens is rare. Dr. Elena Rostova is patient, thorough, and kind. The clinics are clean, child-friendly, and very well coordinated.”
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">SV</div>
+              <div class="author-info">
+                <h5>Sanjay Varma</h5>
+                <span>Pediatrics Parent • Sample Review</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         08. HEALTH RESOURCES
+         Educational articles, wellness guidance, FAQs
+         ======================================================================= -->
+    <section class="section-padding" style="background-color: var(--surface-alt);" id="health-resources">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag"><i class="fa-solid fa-book-medical"></i> Clinical Insights</span>
+          <h2 class="section-title">Health Resources & Guidance</h2>
+          <p class="section-subtitle">Physician-curated educational articles to help you take proactive charge of your daily wellness.</p>
+        </div>
+
+        <div class="grid-3" style="margin-bottom: 56px;">
+          <div class="resource-card">
+            <div class="resource-img-wrap">
+              <img src="assets/images/departments/cardiology.webp" alt="Heart Health Guide" loading="lazy" width="400" height="220">
+            </div>
+            <div class="resource-content">
+              <div class="resource-meta">Cardiovascular Wellness • 5 Min Read</div>
+              <h3>Understanding Early Indicators of Hypertension</h3>
+              <p>Key lifestyle interventions and monitoring practices to detect and mitigate high blood pressure before complications arise.</p>
+              <a href="404.html" class="dept-link">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-img-wrap">
+              <img src="assets/images/departments/general-medicine.webp" alt="Preventative Medicine" loading="lazy" width="400" height="220">
+            </div>
+            <div class="resource-content">
+              <div class="resource-meta">Preventative Care • 6 Min Read</div>
+              <h3>Annual Health Checkups: What Every Adult Needs</h3>
+              <p>A breakdown of vital screening tests by age group, from cholesterol profiling to metabolic markers and bone density.</p>
+              <a href="404.html" class="dept-link">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-img-wrap">
+              <img src="assets/images/departments/pediatrics.webp" alt="Child Health Guide" loading="lazy" width="400" height="220">
+            </div>
+            <div class="resource-content">
+              <div class="resource-meta">Pediatric Health • 4 Min Read</div>
+              <h3>Building Resilient Immunity in Young Children</h3>
+              <p>Practical pediatrician tips on balanced nutrition, seasonal vaccinations, and consistent sleep hygiene for children.</p>
+              <a href="404.html" class="dept-link">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQs Accordion -->
+        <div class="faq-accordion">
+          <div class="faq-item active">
+            <button class="faq-question">
+              <span>How do I prepare for my initial clinical consultation?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Please bring a valid photo ID, your previous medical records or imaging disks, and a list of current prescription medications or supplements you are taking.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Can I reschedule or cancel my appointment online?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. You can manage, reschedule, or cancel your booking through the Appointments page or directly via your Patient Portal dashboard with instant updates.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How quickly will diagnostic lab test results be available?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Standard blood biochemistry results are uploaded within 4–6 hours. Advanced pathology and radiological reports are verified by our specialist physicians within 24 hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         09. HEALTHCARE AT A GLANCE (ANIMATED COUNTERS)
+         Clearly labeled illustrative demo statistics
+         ======================================================================= -->
+    <section class="section-padding" id="glance-statistics">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag"><i class="fa-solid fa-chart-line"></i> By The Numbers</span>
+          <h2 class="section-title">Healthcare at a Glance</h2>
+          <p class="section-subtitle">Our clinical reach and capacity across departments and regional centers (Illustrative demo statistics).</p>
+        </div>
+
+        <div class="grid-4">
+          <div class="counter-box">
+            <div class="counter-number" data-target="24">24+</div>
+            <div class="counter-label">Medical Departments</div>
+            <div class="counter-sub">Specialty disciplines</div>
+          </div>
+
+          <div class="counter-box">
+            <div class="counter-number" data-target="85">85+</div>
+            <div class="counter-label">Board Doctors</div>
+            <div class="counter-sub">Certified specialists</div>
+          </div>
+
+          <div class="counter-box">
+            <div class="counter-number" data-target="12400">12,400+</div>
+            <div class="counter-label">Appointments Coordinated</div>
+            <div class="counter-sub">Demo records</div>
+          </div>
+
+          <div class="counter-box">
+            <div class="counter-number" data-target="12">12+</div>
+            <div class="counter-label">Modern Facilities</div>
+            <div class="counter-sub">Across 4 major hubs</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         10. FINAL CTA BANNER
+         "Your Health Deserves Thoughtful Care" + appointment and contact actions
+         ======================================================================= -->
+    <section class="section-padding" style="padding-top: 0;" id="final-cta">
+      <div class="container">
+        <div class="final-cta-banner">
+          <span class="badge-tag" style="background: rgba(66, 191, 165, 0.2); border-color: rgba(66, 191, 165, 0.4); color: #42BFA5;">
+            <i class="fa-solid fa-heart-pulse"></i> Proactive Health
+          </span>
+          <h2 class="final-cta-title">Your Health Deserves Thoughtful Care</h2>
+          <p class="final-cta-desc">
+            Schedule a consultation with our experienced clinical specialists or connect with our support coordinators today.
+          </p>
+          <div class="final-cta-actions">
+            <a href="appointments.html" class="btn btn-primary btn-lg" id="final-cta-book">
+              <i class="fa-regular fa-calendar-check"></i>
+              <span>Book Appointment</span>
+            </a>
+            <a href="Contact.html" class="btn btn-outline" style="border-color: rgba(244,248,247,0.8); color: #F4F8F7;" id="final-cta-contact">
+              <i class="fa-regular fa-envelope"></i>
+              <span>Contact Us</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       SHARED FOOTER
+       STACKLY Logo, description, 3 columns (Quick Links to real pages; 2 columns
+       to 404.html), Font Awesome social icons to 404.html, center aligned on mobile
+       ========================================================================= -->
+  <footer class="site-footer" id="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link">
+            <img src="Assets/Brand-logo.webp" alt="STACKLY Healthcare Logo" class="footer-logo-img" width="160" height="38">
+          </a>
+          <p class="footer-desc">
+            STACKLY Healthcare coordinates compassionate physician care, state-of-the-art diagnostics, and digitized patient management across premier clinical centers.
+          </p>
+          <div class="footer-socials">
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 1: Quick Links (Nav Links go to respected pages) -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+            <li><a href="Service.html"><i class="fa-solid fa-angle-right"></i> Healthcare Services</a></li>
+            <li><a href="Doctors.html"><i class="fa-solid fa-angle-right"></i> Our Doctors</a></li>
+            <li><a href="About.html"><i class="fa-solid fa-angle-right"></i> About STACKLY</a></li>
+            <li><a href="Contact.html"><i class="fa-solid fa-angle-right"></i> Contact & Branches</a></li>
+            <li><a href="appointments.html"><i class="fa-solid fa-angle-right"></i> Book Appointment</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Clinical Departments (Go to 404.html) -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Specialties</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Cardiology Center</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Neurology & Spine</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Orthopedic Surgery</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Pediatric Wellness</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> 3T MRI & Imaging</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Clinical Pathology</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Support & Policies (Go to 404.html) -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Patient Care</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Privacy Policy</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Terms of Service</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Accessibility Statement</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Insurance & Billing</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Patient Rights</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Medical Research</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 STACKLY Healthcare Management System. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="404.html">Privacy</a>
+          <a href="404.html">Terms</a>
+          <a href="404.html">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP & ScrollTrigger from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Main Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>

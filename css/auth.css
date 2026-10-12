@@ -1,0 +1,320 @@
+/* ==========================================================================
+   STACKLY HEALTHCARE - AUTHENTICATION STYLES (css/auth.css)
+   Pixel-accurate matching for Login.html and Signup.html
+   ========================================================================== */
+
+.auth-body {
+  min-height: 100vh;
+  width: 100%;
+  background: #F4F8F7;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 18px;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+}
+
+/* Background visual motif matching screenshot */
+.auth-bg-shape {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 48vw;
+  height: 100vh;
+  background: linear-gradient(135deg, rgba(230, 238, 236, 0.7) 0%, rgba(215, 230, 227, 0.85) 100%);
+  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.auth-bg-glow {
+  position: fixed;
+  bottom: -150px;
+  left: -150px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(66, 191, 165, 0.18) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Top bar with Back to Home and Brand Logo */
+.auth-header-bar {
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  right: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.auth-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #0A242B;
+  transition: transform 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+
+.auth-back-link i {
+  font-size: 1rem;
+}
+
+.auth-back-link:hover {
+  color: var(--accent-dark);
+  transform: translateX(-4px);
+}
+
+.auth-brand-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Auth Card Container */
+.auth-card-container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 450px;
+  margin: 30px auto 20px auto;
+}
+
+.auth-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 34px 34px 30px 34px;
+  box-shadow: 0 14px 44px rgba(18, 60, 70, 0.08);
+  border: 1px solid rgba(216, 230, 227, 0.6);
+  position: relative;
+}
+
+.auth-title-block {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.auth-title {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.85rem;
+  color: #0A242B;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.auth-subtitle {
+  font-size: 0.92rem;
+  color: #7A8E89;
+  font-weight: 400;
+}
+
+/* Form Controls */
+.auth-form-group {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.auth-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.auth-label {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #0A242B;
+}
+
+.auth-forgot-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-dark);
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.auth-forgot-link:hover {
+  color: #123C46;
+  text-decoration: underline;
+}
+
+.auth-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-input-icon {
+  position: absolute;
+  left: 18px;
+  color: #8C9F9B;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.auth-input, .auth-select {
+  width: 100%;
+  padding: 15px 18px 15px 48px;
+  background: #FFFFFF;
+  border: 1.5px solid #E2EAE8;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: #0A242B;
+  transition: all 0.2s ease;
+  outline: none;
+  font-family: var(--font-body);
+}
+
+.auth-select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.auth-select-arrow {
+  position: absolute;
+  right: 18px;
+  color: #8C9F9B;
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.auth-password-toggle {
+  position: absolute;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: #8C9F9B;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.auth-password-toggle:hover {
+  color: #0A242B;
+}
+
+.auth-input:focus, .auth-select:focus {
+  border-color: #0A242B;
+  box-shadow: 0 0 0 3px rgba(18, 60, 70, 0.08);
+}
+
+.auth-field-error {
+  color: #D32F2F;
+  font-size: 0.78rem;
+  font-weight: 500;
+  margin-top: 5px;
+  display: none;
+}
+
+.auth-form-group.has-error .auth-input,
+.auth-form-group.has-error .auth-select {
+  border-color: #D32F2F;
+}
+
+.auth-form-group.has-error .auth-field-error {
+  display: block;
+}
+
+/* Submit Button */
+.auth-submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: #0A242B;
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-bottom: 18px;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(10, 36, 43, 0.2);
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.auth-submit-btn:hover {
+  background: #123C46;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 36, 43, 0.3);
+}
+
+.auth-submit-btn:active {
+  transform: translateY(0);
+}
+
+.auth-footer-prompt {
+  text-align: center;
+  font-size: 0.92rem;
+  color: #556B66;
+}
+
+.auth-footer-link {
+  font-weight: 700;
+  color: #0A242B;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.auth-footer-link:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+/* Feedback banners */
+.auth-alert {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  margin-bottom: 18px;
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth-alert-error {
+  background: #FFEBEE;
+  color: #C62828;
+  border: 1px solid #FFCDD2;
+}
+
+.auth-alert-success {
+  background: #E8F8F5;
+  color: #0E6251;
+  border: 1px solid #A2D9CE;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .auth-header-bar {
+    top: 20px;
+    left: 20px;
+    right: 20px;
+  }
+  .auth-card {
+    padding: 34px 24px;
+    border-radius: 20px;
+  }
+  .auth-title {
+    font-size: 1.7rem;
+  }
+  .auth-card-container {
+    margin-top: 70px;
+  }
+}

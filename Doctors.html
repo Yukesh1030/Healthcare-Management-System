@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet Our Doctors — STACKLY Healthcare</title>
+  <meta name="description" content="Meet our board-certified clinical faculty at STACKLY Healthcare. Search and filter by medical department, review qualifications, and book specialist consultations.">
+  
+  <!-- Google Fonts: DM Serif Display & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       SITE NAVBAR
+       ========================================================================= -->
+  <header class="site-header" id="main-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-link" id="brand-logo-link">
+        <img src="Assets/Brand-logo.webp" alt="STACKLY Healthcare Logo" class="brand-logo-img" width="160" height="38">
+      </a>
+
+      <!-- 5 Centered Navlinks -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link" id="nav-home">Home</a>
+        <a href="Service.html" class="nav-link" id="nav-services">Services</a>
+        <a href="Doctors.html" class="nav-link active" id="nav-doctors">Doctors</a>
+        <a href="About.html" class="nav-link" id="nav-about">About</a>
+        <a href="Contact.html" class="nav-link" id="nav-contact">Contact</a>
+      </nav>
+
+      <!-- Right Login Button & Mobile Toggle -->
+      <div class="nav-actions">
+        <a href="Login.html" class="nav-login-btn" id="nav-login-btn">
+          <i class="fa-regular fa-user"></i>
+          <span>Login</span>
+        </a>
+      </div>
+
+      <button class="mobile-nav-toggle" id="mobile-toggle-btn" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="Service.html" class="nav-link">Services</a>
+      <a href="Doctors.html" class="nav-link active">Doctors</a>
+      <a href="About.html" class="nav-link">About</a>
+      <a href="Contact.html" class="nav-link">Contact</a>
+      <a href="appointments.html" class="nav-link" style="color: var(--accent);">Book Appointment</a>
+      <a href="Login.html" class="nav-login-btn">
+        <i class="fa-regular fa-user"></i>
+        <span>Login</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- =======================================================================
+         1. DOCTORS HERO SECTION
+         Hero: Meet the People Behind Your Care
+         Animated cover image, center aligned content
+         ======================================================================= -->
+    <section class="inner-hero" id="doctors-hero">
+      <img src="assets/images/hero/hero-doctors.webp" alt="STACKLY Medical Faculty" class="inner-hero-bg" width="1400" height="600">
+      <div class="inner-hero-overlay"></div>
+      <div class="container">
+        <div class="inner-hero-content">
+          <div class="breadcrumbs">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Doctors</span>
+          </div>
+          <h1 class="inner-hero-title">Meet the People Behind Your Care</h1>
+          <p class="inner-hero-desc">
+            Our esteemed physicians, surgeons, and specialists bring world-class training, clinical dedication, and compassionate care to every consultation.
+          </p>
+          <a href="#directory-section" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Browse Doctor Directory</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         2 & 3 & 4. SEARCH DOCTORS, FILTER BY DEPARTMENT, DOCTOR DIRECTORY
+         Dynamic interactive search and filter system
+         ======================================================================= -->
+    <section class="section-padding" id="directory-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag"><i class="fa-solid fa-user-doctor"></i> Clinical Directory</span>
+          <h2 class="section-title">Find Your Specialist</h2>
+          <p class="section-subtitle">Search by clinician name or specialty and filter across our core medical departments.</p>
+        </div>
+
+        <!-- 2. Search Box & 3. Filter by Department -->
+        <div class="doctor-filter-bar">
+          <div class="doctor-search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="doctor-search" class="doctor-search-input" placeholder="Search doctor by name, specialty, or condition (e.g. Jenkins, Cardiology, Spine)..." aria-label="Search doctors">
+          </div>
+
+          <div class="department-tabs" role="tablist">
+            <button class="dept-tab-btn active" data-dept="all" role="tab">All Specialties</button>
+            <button class="dept-tab-btn" data-dept="cardiology" role="tab">Cardiology</button>
+            <button class="dept-tab-btn" data-dept="neurology" role="tab">Neurology</button>
+            <button class="dept-tab-btn" data-dept="orthopedics" role="tab">Orthopedics</button>
+            <button class="dept-tab-btn" data-dept="pediatrics" role="tab">Pediatrics</button>
+            <button class="dept-tab-btn" data-dept="general-medicine" role="tab">General Medicine</button>
+            <button class="dept-tab-btn" data-dept="diagnostics" role="tab">Diagnostics</button>
+          </div>
+        </div>
+
+        <!-- 4. Dynamic Doctor Directory Cards Grid -->
+        <div class="grid-3" id="doctors-directory-grid">
+          <!-- Populated dynamically via js/doctors.js with full fallback content -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         5. DOCTOR PROFILE HIGHLIGHTS
+         Featured physician credentials and leadership spotlight
+         ======================================================================= -->
+    <section class="section-padding" style="background-color: var(--surface-alt);" id="profile-highlights">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag"><i class="fa-solid fa-award"></i> Clinical Excellence</span>
+          <h2 class="section-title">Physician Leadership Highlights</h2>
+          <p class="section-subtitle">Leading researchers and faculty members guiding institutional safety and therapeutic protocols.</p>
+        </div>
+
+        <div class="grid-2">
+          <!-- Spotlight 1 -->
+          <div class="card" style="display: flex; gap: 24px; align-items: center; padding: 32px;">
+            <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 3px solid var(--accent);">
+              <img src="assets/images/doctors/dr-sarah-cardiology.webp" alt="Dr. Sarah Jenkins" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div>
+              <span class="badge-tag" style="margin-bottom: 8px;">Department Chair</span>
+              <h3 style="font-size: 1.35rem; margin-bottom: 6px;">Dr. Sarah Jenkins, MD, FACC</h3>
+              <p style="font-size: 0.9rem; margin-bottom: 12px;">Chair of Cardiovascular Sciences with over 40 published papers in coronary interventions and preventive cardiology.</p>
+              <a href="appointments.html?doctor=doc-1" class="dept-link">Schedule Consult <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Spotlight 2 -->
+          <div class="card" style="display: flex; gap: 24px; align-items: center; padding: 32px;">
+            <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 3px solid var(--accent);">
+              <img src="assets/images/doctors/dr-rajesh-neurology.webp" alt="Dr. Rajesh Sharma" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div>
+              <span class="badge-tag" style="margin-bottom: 8px;">Surgical Director</span>
+              <h3 style="font-size: 1.35rem; margin-bottom: 6px;">Dr. Rajesh Sharma, MCh</h3>
+              <p style="font-size: 0.9rem; margin-bottom: 12px;">Director of Neuro-Oncology Surgery specializing in minimally invasive microsurgical resection of complex cranial lesions.</p>
+              <a href="appointments.html?doctor=doc-2" class="dept-link">Schedule Consult <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         6. AVAILABILITY AND APPOINTMENT SLOTS
+         Visual slot preview & scheduling protocol
+         ======================================================================= -->
+    <section class="section-padding" id="availability-slots">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag"><i class="fa-regular fa-clock"></i> Consult Scheduling</span>
+          <h2 class="section-title">Availability & Appointment Slots</h2>
+          <p class="section-subtitle">Real-time schedule blocks organized for swift coordination and timely patient appointments.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+              <h4 style="font-size: 1.15rem;">Morning Sessions</h4>
+              <span class="status-pill status-confirmed">High Availability</span>
+            </div>
+            <p style="font-size: 0.92rem; margin-bottom: 18px;">Ideal for diagnostic fasting tests, comprehensive annual checks, and initial specialist reviews.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+              <span class="slot-pill-btn" style="padding: 6px 12px; font-size: 0.82rem;">08:30 AM</span>
+              <span class="slot-pill-btn" style="padding: 6px 12px; font-size: 0.82rem;">09:45 AM</span>
+              <span class="slot-pill-btn" style="padding: 6px 12px; font-size: 0.82rem;">11:15 AM</span>
+            </div>
+            <a href="appointments.html" class="btn btn-outline-accent btn-sm" style="width: 100%;">Book Morning</a>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+              <h4 style="font-size: 1.15rem;">Afternoon Sessions</h4>
+              <span class="status-pill status-confirmed">Moderate Slots</span>
+            </div>
+            <p style="font-size: 0.92rem; margin-bottom: 18px;">Suited for routine follow-ups, diagnostic report consultations, and chronic care management.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+              <span class="slot-pill-btn" style="padding: 6px 12px; font-size: 0.82rem;">01:30 PM</span>
+              <span class="slot-pill-btn" style="padding: 6px 12px; font-size: 0.82rem;">02:45 PM</span>
+              <span class="slot-pill-btn" style="padding: 6px 12px; font-size: 0.82rem;">04:00 PM</span>
+            </div>
+            <a href="appointments.html" class="btn btn-outline-accent btn-sm" style="width: 100%;">Book Afternoon</a>
+          </div>
+
+          <div class="card">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+              <h4 style="font-size: 1.15rem;">Weekend Clinics</h4>
+              <span class="status-pill status-pending">Limited Slots</span>
+            </div>
+            <p style="font-size: 0.92rem; margin-bottom: 18px;">Dedicated Saturday specialist outpatient clinics designed for working professionals and families.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+              <span class="slot-pill-btn" style="padding: 6px 12px; font-size: 0.82rem;">Sat 09:00 AM</span>
+              <span class="slot-pill-btn" style="padding: 6px 12px; font-size: 0.82rem;">Sat 11:30 AM</span>
+              <span class="slot-pill-btn" style="padding: 6px 12px; font-size: 0.82rem;">Sat 02:00 PM</span>
+            </div>
+            <a href="appointments.html" class="btn btn-outline-accent btn-sm" style="width: 100%;">Book Weekend</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         7. FREQUENTLY ASKED QUESTIONS
+         ======================================================================= -->
+    <section class="section-padding" style="background-color: var(--surface-alt);" id="doctors-faqs">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag"><i class="fa-regular fa-circle-question"></i> Questions & Answers</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Helpful insights on choosing a physician, consultation duration, and hospital privileges.</p>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="faq-item active">
+            <button class="faq-question">
+              <span>How do I determine which doctor is best suited for my medical condition?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>You can search by condition keyword (e.g., "hypertension", "joint pain", "headache") using our search tool above, or contact our central clinical triage desk at +91 80 4912 8000 for guided coordination.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>What is the typical duration of an initial specialist consultation?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Initial specialist consultations typically range between 30 to 45 minutes to ensure your complete medical history, previous diagnostics, and concerns are thoroughly examined without rushing.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Are all doctors affiliated with inpatient surgery centers?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. All senior surgical faculty maintain active operating privileges at our accredited regional surgical centers equipped with certified laminar airflow operating suites.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         8. BOOKING CTA
+         ======================================================================= -->
+    <section class="section-padding" style="padding-top: 0;" id="doctors-cta">
+      <div class="container">
+        <div class="final-cta-banner">
+          <span class="badge-tag" style="background: rgba(66, 191, 165, 0.2); border-color: rgba(66, 191, 165, 0.4); color: #42BFA5;">
+            <i class="fa-solid fa-user-doctor"></i> Personalized Attention
+          </span>
+          <h2 class="final-cta-title">Ready to Consult with Our Specialists?</h2>
+          <p class="final-cta-desc">
+            Choose your doctor, pick your preferred consultation hour, and secure your visit in seconds.
+          </p>
+          <div class="final-cta-actions">
+            <a href="appointments.html" class="btn btn-primary btn-lg">
+              <i class="fa-regular fa-calendar-check"></i>
+              <span>Book Appointment Now</span>
+            </a>
+            <a href="Contact.html" class="btn btn-outline" style="border-color: rgba(244,248,247,0.8); color: #F4F8F7;">
+              <i class="fa-regular fa-envelope"></i>
+              <span>Ask Our Care Team</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       SHARED FOOTER
+       ========================================================================= -->
+  <footer class="site-footer" id="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link">
+            <img src="Assets/Brand-logo.webp" alt="STACKLY Healthcare Logo" class="footer-logo-img" width="160" height="38">
+          </a>
+          <p class="footer-desc">
+            STACKLY Healthcare coordinates compassionate physician care, state-of-the-art diagnostics, and digitized patient management across premier clinical centers.
+          </p>
+          <div class="footer-socials">
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+            <li><a href="Service.html"><i class="fa-solid fa-angle-right"></i> Healthcare Services</a></li>
+            <li><a href="Doctors.html"><i class="fa-solid fa-angle-right"></i> Our Doctors</a></li>
+            <li><a href="About.html"><i class="fa-solid fa-angle-right"></i> About STACKLY</a></li>
+            <li><a href="Contact.html"><i class="fa-solid fa-angle-right"></i> Contact & Branches</a></li>
+            <li><a href="appointments.html"><i class="fa-solid fa-angle-right"></i> Book Appointment</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Specialties</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Cardiology Center</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Neurology & Spine</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Orthopedic Surgery</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Pediatric Wellness</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> 3T MRI & Imaging</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Clinical Pathology</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Patient Care</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Privacy Policy</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Terms of Service</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Accessibility Statement</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Insurance & Billing</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Patient Rights</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Medical Research</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 STACKLY Healthcare Management System. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="404.html">Privacy</a>
+          <a href="404.html">Terms</a>
+          <a href="404.html">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP & ScrollTrigger from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Main Script & Doctors Directory Script -->
+  <script src="js/main.js"></script>
+  <script src="js/doctors.js"></script>
+</body>
+</html>

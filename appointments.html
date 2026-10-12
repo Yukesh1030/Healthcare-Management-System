@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book an Appointment — STACKLY Healthcare</title>
+  <meta name="description" content="Schedule a medical consultation with board-certified physicians across cardiology, neurology, orthopedics, and diagnostics at STACKLY Healthcare.">
+  
+  <!-- Google Fonts: DM Serif Display & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       SITE NAVBAR
+       ========================================================================= -->
+  <header class="site-header" id="main-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-link" id="brand-logo-link">
+        <img src="Assets/Brand-logo.webp" alt="STACKLY Healthcare Logo" class="brand-logo-img" width="160" height="38">
+      </a>
+
+      <!-- 5 Centered Navlinks -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link" id="nav-home">Home</a>
+        <a href="Service.html" class="nav-link" id="nav-services">Services</a>
+        <a href="Doctors.html" class="nav-link" id="nav-doctors">Doctors</a>
+        <a href="About.html" class="nav-link" id="nav-about">About</a>
+        <a href="Contact.html" class="nav-link" id="nav-contact">Contact</a>
+      </nav>
+
+      <!-- Right Login Button & Mobile Toggle -->
+      <div class="nav-actions">
+        <a href="Login.html" class="nav-login-btn" id="nav-login-btn">
+          <i class="fa-regular fa-user"></i>
+          <span>Login</span>
+        </a>
+      </div>
+
+      <button class="mobile-nav-toggle" id="mobile-toggle-btn" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="Service.html" class="nav-link">Services</a>
+      <a href="Doctors.html" class="nav-link">Doctors</a>
+      <a href="About.html" class="nav-link">About</a>
+      <a href="Contact.html" class="nav-link">Contact</a>
+      <a href="appointments.html" class="nav-link active" style="color: var(--accent);">Book Appointment</a>
+      <a href="Login.html" class="nav-login-btn">
+        <i class="fa-regular fa-user"></i>
+        <span>Login</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- =======================================================================
+         HERO SECTION: Schedule Your Clinical Appointment
+         Animated cover image, center aligned content
+         ======================================================================= -->
+    <section class="inner-hero" id="appointment-hero">
+      <img src="assets/images/hero/hero-appointments.webp" alt="Appointment Booking at STACKLY" class="inner-hero-bg" width="1400" height="600">
+      <div class="inner-hero-overlay"></div>
+      <div class="container">
+        <div class="inner-hero-content">
+          <div class="breadcrumbs">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Appointments</span>
+          </div>
+          <h1 class="inner-hero-title">Schedule Your Consultation</h1>
+          <p class="inner-hero-desc">
+            Complete your clinical visit details below. Select your clinical department, preferred specialist physician, and convenient appointment time slot.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         INTERACTIVE APPOINTMENT BOOKING WIZARD
+         Department -> Doctor -> Date -> Slots -> Patient Info -> Live Summary -> Confirmation
+         ======================================================================= -->
+    <section class="section-padding" id="booking-section">
+      <div class="container">
+        <div class="booking-wizard-wrapper">
+          <div style="text-align: center; margin-bottom: 40px;">
+            <span class="badge-tag"><i class="fa-solid fa-calendar-check"></i> Step-by-Step Coordination</span>
+            <h2 class="section-title" style="font-size: 2.2rem;">Book In 3 Easy Steps</h2>
+            <p class="section-subtitle">Real-time sample slot availability for the prototype demonstration.</p>
+          </div>
+
+          <form id="appointment-form" novalidate>
+            <!-- Step 1: Department & Doctor Selection -->
+            <div style="margin-bottom: 36px; padding-bottom: 30px; border-bottom: 1px solid var(--surface-border);">
+              <h3 style="font-size: 1.3rem; margin-bottom: 20px; color: var(--primary); display: flex; align-items: center; gap: 10px;">
+                <span style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--primary-dark); display: inline-flex; align-items: center; justify-content: center; font-size: 0.95rem; font-weight: 700;">1</span>
+                <span>Select Department & Specialist Doctor</span>
+              </h3>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="booking-dept" class="form-label">Medical Department *</label>
+                  <select id="booking-dept" class="form-select" required>
+                    <option value="cardiology">Cardiology (Heart & Vascular)</option>
+                    <option value="neurology">Neurology (Brain & Spine)</option>
+                    <option value="orthopedics">Orthopedics (Joints & Sports)</option>
+                    <option value="pediatrics">Pediatrics (Child Health)</option>
+                    <option value="general-medicine">General Medicine (Internal Health)</option>
+                    <option value="diagnostics">Diagnostics & Imaging (MRI/Lab)</option>
+                  </select>
+                  <span class="form-error">Please select a department</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="booking-doctor" class="form-label">Attending Specialist *</label>
+                  <select id="booking-doctor" class="form-select" required>
+                    <!-- Populated dynamically via js/appointments.js based on department -->
+                  </select>
+                  <span class="form-error">Please choose a doctor</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: Date Picker & Available Time Slots -->
+            <div style="margin-bottom: 36px; padding-bottom: 30px; border-bottom: 1px solid var(--surface-border);">
+              <h3 style="font-size: 1.3rem; margin-bottom: 20px; color: var(--primary); display: flex; align-items: center; gap: 10px;">
+                <span style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--primary-dark); display: inline-flex; align-items: center; justify-content: center; font-size: 0.95rem; font-weight: 700;">2</span>
+                <span>Choose Date & Consultation Slot</span>
+              </h3>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="booking-date" class="form-label">Preferred Appointment Date *</label>
+                  <input type="date" id="booking-date" class="form-input" required>
+                  <span class="form-error">Please select an appointment date</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Available Time Slot *</label>
+                  <div class="slot-pills-grid" id="time-slots-container">
+                    <button type="button" class="slot-pill-btn selected" data-time="09:30 AM">09:30 AM</button>
+                    <button type="button" class="slot-pill-btn" data-time="11:00 AM">11:00 AM</button>
+                    <button type="button" class="slot-pill-btn" data-time="01:30 PM">01:30 PM</button>
+                    <button type="button" class="slot-pill-btn" data-time="03:45 PM">03:45 PM</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Patient Contact Information -->
+            <div style="margin-bottom: 36px;">
+              <h3 style="font-size: 1.3rem; margin-bottom: 20px; color: var(--primary); display: flex; align-items: center; gap: 10px;">
+                <span style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--primary-dark); display: inline-flex; align-items: center; justify-content: center; font-size: 0.95rem; font-weight: 700;">3</span>
+                <span>Patient Contact Details</span>
+              </h3>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="patient-name" class="form-label">Full Legal Name *</label>
+                  <input type="text" id="patient-name" class="form-input" placeholder="e.g. Johnathan Doe" required>
+                  <span class="form-error">Full name is required</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="patient-email" class="form-label">Email Address *</label>
+                  <input type="email" id="patient-email" class="form-input" placeholder="e.g. user@example.com" required>
+                  <span class="form-error">Valid email is required</span>
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="patient-phone" class="form-label">Mobile Phone Number *</label>
+                  <input type="tel" id="patient-phone" class="form-input" placeholder="e.g. +91 98765 43210" required>
+                  <span class="form-error">Phone number is required</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="patient-reason" class="form-label">Reason for Visit (Optional)</label>
+                  <input type="text" id="patient-reason" class="form-input" placeholder="e.g. Annual health check, Second opinion, Routine review">
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Appointment Summary Box -->
+            <div class="appointment-summary-box">
+              <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: var(--primary); display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-receipt" style="color: var(--accent);"></i> Live Booking Summary
+              </h4>
+              <div class="summary-row">
+                <span class="summary-label">Department:</span>
+                <span class="summary-val" id="sum-dept">Cardiology</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">Physician:</span>
+                <span class="summary-val" id="sum-doctor">Dr. Sarah Jenkins</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">Consultation Date:</span>
+                <span class="summary-val" id="sum-date">Today</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">Selected Slot:</span>
+                <span class="summary-val" id="sum-time">09:30 AM</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-label">Patient Name:</span>
+                <span class="summary-val" id="sum-patient">Guest Patient</span>
+              </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 24px;">
+              <button type="submit" class="btn btn-primary btn-lg" id="confirm-booking-btn">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Confirm Appointment Booking</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- ===================================================================
+             RESCHEDULE AND CANCELLATION DEMONSTRATIONS
+             Interactive prototype demonstration cards
+             =================================================================== -->
+        <div class="card" style="margin-top: 48px; border: 1px dashed var(--accent);">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+            <div>
+              <span class="badge-tag" style="margin-bottom: 8px;">Prototype Simulation</span>
+              <h3 style="font-size: 1.4rem;">Manage Existing Booking Demonstration</h3>
+              <p style="font-size: 0.92rem; color: var(--primary-muted);">Simulate reschedule and cancellation workflows with instant interactive feedback.</p>
+            </div>
+            <div id="demo-appointment-status">
+              <span class="status-pill status-confirmed">Confirmed Active</span>
+            </div>
+          </div>
+
+          <div style="background: var(--surface-alt); padding: 20px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+            <div>
+              <strong style="color: var(--primary); font-size: 1rem; display: block;">Booking Ref: #STK-DEMO-9941</strong>
+              <span style="font-size: 0.88rem; color: var(--primary-muted);">Dr. Sarah Jenkins • Cardiology • Scheduled: Tomorrow at 10:00 AM</span>
+            </div>
+            <div style="display: flex; gap: 12px;">
+              <button type="button" class="btn btn-outline btn-sm" id="demo-reschedule-btn">
+                <i class="fa-solid fa-clock-rotate-left"></i> Reschedule Slot
+              </button>
+              <button type="button" class="btn btn-outline btn-sm" style="color: #D32F2F; border-color: #D32F2F;" id="demo-cancel-btn">
+                <i class="fa-solid fa-xmark"></i> Cancel Booking
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       SHARED FOOTER
+       ========================================================================= -->
+  <footer class="site-footer" id="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link">
+            <img src="Assets/Brand-logo.webp" alt="STACKLY Healthcare Logo" class="footer-logo-img" width="160" height="38">
+          </a>
+          <p class="footer-desc">
+            STACKLY Healthcare coordinates compassionate physician care, state-of-the-art diagnostics, and digitized patient management across premier clinical centers.
+          </p>
+          <div class="footer-socials">
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+            <li><a href="Service.html"><i class="fa-solid fa-angle-right"></i> Healthcare Services</a></li>
+            <li><a href="Doctors.html"><i class="fa-solid fa-angle-right"></i> Our Doctors</a></li>
+            <li><a href="About.html"><i class="fa-solid fa-angle-right"></i> About STACKLY</a></li>
+            <li><a href="Contact.html"><i class="fa-solid fa-angle-right"></i> Contact & Branches</a></li>
+            <li><a href="appointments.html"><i class="fa-solid fa-angle-right"></i> Book Appointment</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Specialties</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Cardiology Center</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Neurology & Spine</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Orthopedic Surgery</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Pediatric Wellness</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> 3T MRI & Imaging</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Clinical Pathology</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Patient Care</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Privacy Policy</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Terms of Service</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Accessibility Statement</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Insurance & Billing</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Patient Rights</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Medical Research</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 STACKLY Healthcare Management System. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="404.html">Privacy</a>
+          <a href="404.html">Terms</a>
+          <a href="404.html">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP & ScrollTrigger from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Main & Appointment Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/appointments.js"></script>
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physician Clinical Portal — STACKLY Healthcare</title>
+  <meta name="description" content="STACKLY Healthcare Doctor Clinical Portal. Consult schedule, patient queues, prescription workflows, and follow-up management.">
+  
+  <!-- Google Fonts: DM Serif Display & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    <!-- =======================================================================
+         DOCTOR SIDEBAR — 5 MENUS
+         1. Dashboard
+         2. My Appointments
+         3. Patient Records
+         4. Prescriptions & Reports
+         5. Profile & Settings
+         ======================================================================= -->
+    <aside class="dashboard-sidebar" aria-label="Doctor Navigation Sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand-link">
+          <img src="Assets/Brand-logo.webp" alt="STACKLY" class="sidebar-logo">
+        </a>
+        <span class="sidebar-role-badge">Doctor</span>
+        <button class="sidebar-close-btn" aria-label="Close sidebar"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <!-- 1. Dashboard -->
+        <a href="#dashboard" class="sidebar-nav-item active" data-tab="overview">
+          <i class="fa-solid fa-stethoscope"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <!-- 2. My Appointments -->
+        <a href="#appointments" class="sidebar-nav-item" data-tab="appointments">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span>My Appointments</span>
+        </a>
+
+        <!-- 3. Patient Records -->
+        <a href="#patient-records" class="sidebar-nav-item" data-tab="patient-records">
+          <i class="fa-solid fa-hospital-user"></i>
+          <span>Patient Records</span>
+        </a>
+
+        <!-- 4. Prescriptions & Reports -->
+        <a href="#prescriptions-reports" class="sidebar-nav-item" data-tab="prescriptions-reports">
+          <i class="fa-solid fa-prescription-bottle-medical"></i>
+          <span>Prescriptions & Reports</span>
+        </a>
+
+        <!-- 5. Profile & Settings -->
+        <a href="#settings" class="sidebar-nav-item" data-tab="settings">
+          <i class="fa-solid fa-user-doctor"></i>
+          <span>Profile & Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user-block">
+          <div class="sidebar-user-avatar">SJ</div>
+          <div class="sidebar-user-details">
+            <div class="sidebar-user-name">Dr. Sarah Jenkins</div>
+            <div class="sidebar-user-email">s.jenkins@stacklyhealth.com</div>
+          </div>
+        </div>
+        <a href="Login.html" class="sidebar-logout-btn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- =======================================================================
+         DOCTOR MAIN CONTENT AREA
+         ======================================================================= -->
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button class="mobile-sidebar-toggle" aria-label="Open sidebar menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="topbar-title-wrap">
+            <h1 id="dashboard-page-title">Physician Clinical Console</h1>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <button type="button" class="refresh-btn" id="dashboard-refresh-btn">
+            <i class="fa-solid fa-rotate"></i>
+            <span>Refresh</span>
+          </button>
+
+          <a href="AdminDashboard.html" class="btn btn-outline btn-sm">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Admin View</span>
+          </a>
+
+          <a href="index.html" class="btn btn-outline btn-sm">
+            <i class="fa-solid fa-house"></i>
+            <span>Public Site</span>
+          </a>
+        </div>
+      </header>
+
+      <div class="dashboard-content-area">
+        <!-- ===================================================================
+             TAB 1: DOCTOR DASHBOARD OVERVIEW
+             Today's appointments, Upcoming consultations, Completed consultations
+             =================================================================== -->
+        <div class="dashboard-tab-panel" id="tab-overview" style="display: block;">
+          <!-- 4 DOCTOR METRIC CARDS -->
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-info">
+                <span class="kpi-title">Today's Appointments</span>
+                <span class="kpi-value">12</span>
+                <span class="kpi-badge"><i class="fa-solid fa-clock"></i> 4 completed</span>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-solid fa-calendar-day"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-info">
+                <span class="kpi-title">Assigned Inpatients</span>
+                <span class="kpi-value">7</span>
+                <span class="kpi-badge"><i class="fa-solid fa-bed"></i> Cardiology Ward 3</span>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-solid fa-hospital"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-info">
+                <span class="kpi-title">Pending Lab Reviews</span>
+                <span class="kpi-value">5</span>
+                <span class="kpi-badge" style="color: #E65100; background: #FFF3E0;"><i class="fa-solid fa-flask"></i> Echo & Troponin</span>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-solid fa-vial"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-info">
+                <span class="kpi-title">Follow-Up Reminders</span>
+                <span class="kpi-value">9</span>
+                <span class="kpi-badge"><i class="fa-solid fa-bell"></i> Scheduled this week</span>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-regular fa-bell"></i></div>
+            </div>
+          </div>
+
+          <!-- TODAY'S CLINICAL CONSULTATION SCHEDULE -->
+          <div class="panel-card" style="margin-bottom: 28px;">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-solid fa-user-clock"></i> Today's Consultation Schedule</h3>
+              <span class="status-pill status-confirmed">Morning & Afternoon Sessions</span>
+            </div>
+
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Patient Record</th>
+                    <th>Age/Gender</th>
+                    <th>Consultation Type</th>
+                    <th>Chief Complaint</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>09:30 AM</strong></td>
+                    <td>Ramesh Krishnan (#PT-4821)</td>
+                    <td>54 / Male</td>
+                    <td>In-Clinic Follow-up</td>
+                    <td>Post-stent 3-month review</td>
+                    <td><button class="btn btn-primary btn-sm" onclick="showToast('Opened clinical notes for PT-4821', 'fa-notes-medical')">Start Consult</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>10:15 AM</strong></td>
+                    <td>Sunita Rao (#PT-4825)</td>
+                    <td>46 / Female</td>
+                    <td>Diagnostic Review</td>
+                    <td>Echocardiography assessment</td>
+                    <td><button class="btn btn-outline btn-sm" onclick="showToast('Opened clinical notes for PT-4825', 'fa-notes-medical')">Review</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>11:00 AM</strong></td>
+                    <td>Vikram Singhania (#PT-4830)</td>
+                    <td>62 / Male</td>
+                    <td>Initial Evaluation</td>
+                    <td>Exertional dyspnea & hypertension</td>
+                    <td><button class="btn btn-outline btn-sm" onclick="showToast('Opened clinical notes for PT-4830', 'fa-notes-medical')">Review</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>01:30 PM</strong></td>
+                    <td>Ananya Nair (#PT-4834)</td>
+                    <td>38 / Female</td>
+                    <td>Telehealth Video</td>
+                    <td>Arrhythmia medication titration</td>
+                    <td><button class="btn btn-outline btn-sm" onclick="showToast('Connecting telehealth room...', 'fa-video')">Join Video</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- PRESCRIPTION WORKFLOW & FOLLOW-UP REMINDERS -->
+          <div class="dashboard-grid-2">
+            <div class="panel-card">
+              <div class="panel-header">
+                <h3 class="panel-title"><i class="fa-solid fa-file-pen"></i> Quick Prescription Workflow</h3>
+              </div>
+              <form onsubmit="event.preventDefault(); showToast('Digital Rx signed and dispatched to patient portal.', 'fa-signature'); this.reset();">
+                <div class="form-group" style="margin-bottom: 14px;">
+                  <label class="form-label">Patient Identifier</label>
+                  <input type="text" class="form-input" placeholder="e.g. Ramesh Krishnan (#PT-4821)" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 14px;">
+                  <label class="form-label">Medication & Regimen</label>
+                  <input type="text" class="form-input" placeholder="e.g. Atorvastatin 20mg Once Daily (Night) x 30 days" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 16px;">
+                  <label class="form-label">Clinical Advice & Next Review</label>
+                  <input type="text" class="form-input" placeholder="e.g. Review fasting lipid panel in 6 weeks" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-signature"></i> Sign & Issue Digital Rx</button>
+              </form>
+            </div>
+
+            <div class="panel-card">
+              <div class="panel-header">
+                <h3 class="panel-title"><i class="fa-solid fa-clock-rotate-left"></i> Scheduled Follow-Up Reminders</h3>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="background: var(--surface-alt); padding: 12px 16px; border-radius: 8px;">
+                  <strong style="font-size: 0.9rem;">Sunil Hegde (#PT-3912)</strong>
+                  <p style="font-size: 0.8rem; color: var(--primary-muted); margin: 2px 0 0 0;">Check blood pressure logs post-amlodipine start.</p>
+                </div>
+                <div style="background: var(--surface-alt); padding: 12px 16px; border-radius: 8px;">
+                  <strong style="font-size: 0.9rem;">Kavita Menon (#PT-4022)</strong>
+                  <p style="font-size: 0.8rem; color: var(--primary-muted); margin: 2px 0 0 0;">Verify 24-hr Holter monitor findings with cardiology team.</p>
+                </div>
+                <div style="background: var(--surface-alt); padding: 12px 16px; border-radius: 8px;">
+                  <strong style="font-size: 0.9rem;">Tariq Khan (#PT-4105)</strong>
+                  <p style="font-size: 0.8rem; color: var(--primary-muted); margin: 2px 0 0 0;">Cardiac rehab exercise clearance check.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             TAB 2: MY APPOINTMENTS
+             =================================================================== -->
+        <div class="dashboard-tab-panel" id="tab-appointments" style="display: none;">
+          <div class="panel-card">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-regular fa-calendar-days"></i> Master Clinic Appointment Roster</h3>
+            </div>
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Patient</th>
+                    <th>Case Summary</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Today</td>
+                    <td>09:30 AM</td>
+                    <td>Ramesh Krishnan</td>
+                    <td>Coronary revascularization review</td>
+                    <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                  </tr>
+                  <tr>
+                    <td>Today</td>
+                    <td>10:15 AM</td>
+                    <td>Sunita Rao</td>
+                    <td>Cardiac valve evaluation</td>
+                    <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                  </tr>
+                  <tr>
+                    <td>Tomorrow</td>
+                    <td>11:00 AM</td>
+                    <td>Arvind Shenoy</td>
+                    <td>Stress test consultation</td>
+                    <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             TAB 3: PATIENT RECORDS
+             =================================================================== -->
+        <div class="dashboard-tab-panel" id="tab-patient-records" style="display: none;">
+          <div class="panel-card">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-solid fa-hospital-user"></i> Assigned Clinical Patient Directory</h3>
+            </div>
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Record ID</th>
+                    <th>Patient Name</th>
+                    <th>Primary Diagnosis</th>
+                    <th>Last Visit</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#PT-4821</td>
+                    <td>Ramesh Krishnan</td>
+                    <td>Coronary Artery Disease</td>
+                    <td>Oct 08, 2026</td>
+                    <td><button class="btn btn-outline btn-sm" onclick="showToast('Loaded clinical history', 'fa-folder-open')">View Chart</button></td>
+                  </tr>
+                  <tr>
+                    <td>#PT-4825</td>
+                    <td>Sunita Rao</td>
+                    <td>Mitral Regurgitation (Mild)</td>
+                    <td>Sep 28, 2026</td>
+                    <td><button class="btn btn-outline btn-sm" onclick="showToast('Loaded clinical history', 'fa-folder-open')">View Chart</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             TAB 4: PRESCRIPTIONS & REPORTS
+             =================================================================== -->
+        <div class="dashboard-tab-panel" id="tab-prescriptions-reports" style="display: none;">
+          <div class="panel-card">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-solid fa-prescription"></i> Authorize & Sign Lab Reports</h3>
+            </div>
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Lab Request</th>
+                    <th>Patient</th>
+                    <th>Investigation</th>
+                    <th>Lab Tech Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#LAB-8102</td>
+                    <td>Ramesh Krishnan</td>
+                    <td>Cardiac Troponin-I & CK-MB</td>
+                    <td>Awaiting Physician Sign-off</td>
+                    <td><button class="btn btn-primary btn-sm" onclick="showToast('Diagnostic verified and signed.', 'fa-check')">Sign Report</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             TAB 5: PROFILE & SETTINGS
+             =================================================================== -->
+        <div class="dashboard-tab-panel" id="tab-settings" style="display: none;">
+          <div class="panel-card" style="max-width: 680px;">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-solid fa-user-doctor"></i> Physician Clinical Profile</h3>
+            </div>
+            <form onsubmit="event.preventDefault(); showToast('Physician profile updated.', 'fa-check');">
+              <div class="form-group">
+                <label class="form-label">Full Name & Degrees</label>
+                <input type="text" class="form-input" value="Dr. Sarah Jenkins, MD, FACC" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Primary Specialty</label>
+                <input type="text" class="form-input" value="Senior Interventional Cardiologist" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Clinic Hours</label>
+                <input type="text" class="form-input" value="Mon - Thu: 09:00 AM - 02:00 PM" required>
+              </div>
+              <button type="submit" class="btn btn-primary" style="margin-top: 12px;">Save Profile</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-notice" id="toast-notice"></div>
+
+  <!-- Scripts -->
+  <script src="js/dashboard.js"></script>
+  <script>
+    function showToast(msg, icon = 'fa-check') {
+      const toast = document.getElementById('toast-notice');
+      if (!toast) return;
+      toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${msg}</span>`;
+      toast.classList.add('show');
+      setTimeout(() => { toast.classList.remove('show'); }, 3500);
+    }
+  </script>
+</body>
+</html>

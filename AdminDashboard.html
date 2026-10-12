@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Executive Dashboard — STACKLY Healthcare</title>
+  <meta name="description" content="STACKLY Healthcare administrative operations console. Real-time patient counts, appointments, physician schedules, and department utilization metrics.">
+  
+  <!-- Google Fonts: DM Serif Display & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    <!-- =======================================================================
+         DARK SIDEBAR — 5 MAIN MENUS
+         1. Dashboard
+         2. Patients & Doctors
+         3. Appointments
+         4. Reports & Billing
+         5. Settings
+         ======================================================================= -->
+    <aside class="dashboard-sidebar" aria-label="Admin Navigation Sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand-link">
+          <img src="Assets/Brand-logo.webp" alt="STACKLY" class="sidebar-logo">
+        </a>
+        <span class="sidebar-role-badge">Admin</span>
+        <button class="sidebar-close-btn" aria-label="Close sidebar"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <!-- 1. Dashboard -->
+        <a href="#dashboard" class="sidebar-nav-item active" data-tab="overview">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <!-- 2. Patients & Doctors -->
+        <a href="#patients-doctors" class="sidebar-nav-item" data-tab="patients-doctors">
+          <i class="fa-solid fa-user-doctor"></i>
+          <span>Patients & Doctors</span>
+        </a>
+
+        <!-- 3. Appointments -->
+        <a href="#appointments" class="sidebar-nav-item" data-tab="appointments">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span>Appointments</span>
+        </a>
+
+        <!-- 4. Reports & Billing -->
+        <a href="#reports-billing" class="sidebar-nav-item" data-tab="reports-billing">
+          <i class="fa-solid fa-file-invoice-dollar"></i>
+          <span>Reports & Billing</span>
+        </a>
+
+        <!-- 5. Settings -->
+        <a href="#settings" class="sidebar-nav-item" data-tab="settings">
+          <i class="fa-solid fa-gear"></i>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user-block">
+          <div class="sidebar-user-avatar">AD</div>
+          <div class="sidebar-user-details">
+            <div class="sidebar-user-name">Clinical Admin</div>
+            <div class="sidebar-user-email">admin@stacklyhealth.com</div>
+          </div>
+        </div>
+        <a href="Login.html" class="sidebar-logout-btn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- =======================================================================
+         DASHBOARD MAIN CONTENT AREA
+         ======================================================================= -->
+    <main class="dashboard-main">
+      <!-- Dashboard Top Header Bar -->
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button class="mobile-sidebar-toggle" aria-label="Open sidebar menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="topbar-title-wrap">
+            <h1 id="dashboard-page-title">Executive Overview</h1>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Refresh Button with Spin Control -->
+          <button type="button" class="refresh-btn" id="dashboard-refresh-btn">
+            <i class="fa-solid fa-rotate"></i>
+            <span>Refresh</span>
+          </button>
+
+          <!-- Notification Icon -->
+          <div class="dashboard-btn-icon" title="Notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span class="btn-icon-badge"></span>
+          </div>
+
+          <!-- Quick Return to Site -->
+          <a href="index.html" class="btn btn-outline btn-sm" title="View Public Website">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <span>Public Site</span>
+          </a>
+        </div>
+      </header>
+
+      <div class="dashboard-content-area">
+        <!-- ===================================================================
+             TAB 1: EXECUTIVE DASHBOARD OVERVIEW
+             =================================================================== -->
+        <div class="dashboard-tab-panel" id="tab-overview" style="display: block;">
+          <!-- 4 KPI CARDS (Demo Data clearly labeled) -->
+          <div class="kpi-grid">
+            <!-- Total Patients: 1,284 -->
+            <div class="kpi-card">
+              <div class="kpi-info">
+                <span class="kpi-title">Total Patients</span>
+                <span class="kpi-value">1,284</span>
+                <span class="kpi-badge"><i class="fa-solid fa-arrow-up"></i> +12% this month</span>
+                <span class="kpi-demo-notice">Illustrative demo data</span>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-solid fa-hospital-user"></i></div>
+            </div>
+
+            <!-- Today's Appointments: 48 -->
+            <div class="kpi-card">
+              <div class="kpi-info">
+                <span class="kpi-title">Today's Appointments</span>
+                <span class="kpi-value">48</span>
+                <span class="kpi-badge"><i class="fa-solid fa-calendar-check"></i> 32 confirmed</span>
+                <span class="kpi-demo-notice">Illustrative demo data</span>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-regular fa-calendar"></i></div>
+            </div>
+
+            <!-- Available Doctors: 26 -->
+            <div class="kpi-card">
+              <div class="kpi-info">
+                <span class="kpi-title">Available Doctors</span>
+                <span class="kpi-value">26</span>
+                <span class="kpi-badge"><i class="fa-solid fa-user-doctor"></i> Active on duty</span>
+                <span class="kpi-demo-notice">Illustrative demo data</span>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-solid fa-stethoscope"></i></div>
+            </div>
+
+            <!-- Pending Requests: 12 -->
+            <div class="kpi-card">
+              <div class="kpi-info">
+                <span class="kpi-title">Pending Requests</span>
+                <span class="kpi-value">12</span>
+                <span class="kpi-badge" style="color: #E65100; background: #FFF3E0;"><i class="fa-solid fa-clock"></i> Triage pending</span>
+                <span class="kpi-demo-notice">Illustrative demo data</span>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-solid fa-hourglass-half"></i></div>
+            </div>
+          </div>
+
+          <!-- PANELS: Today's Schedule & Department Utilization -->
+          <div class="dashboard-grid-2">
+            <!-- Today's Appointment Schedule -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <h3 class="panel-title"><i class="fa-regular fa-clock"></i> Today's Appointment Schedule</h3>
+                <input type="text" class="table-search-input" placeholder="Filter patient or doctor..." style="padding: 6px 12px; border-radius: 6px; border: 1px solid #D8E6E3; font-size: 0.85rem;">
+              </div>
+
+              <div class="data-table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Time</th>
+                      <th>Patient Code</th>
+                      <th>Specialist</th>
+                      <th>Department</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>09:30 AM</strong></td>
+                      <td>#PT-8812 (Adult)</td>
+                      <td>Dr. Sarah Jenkins</td>
+                      <td>Cardiology</td>
+                      <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>10:15 AM</strong></td>
+                      <td>#PT-8815 (Pediatric)</td>
+                      <td>Dr. Elena Rostova</td>
+                      <td>Pediatrics</td>
+                      <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>11:00 AM</strong></td>
+                      <td>#PT-8820 (Adult)</td>
+                      <td>Dr. Rajesh Sharma</td>
+                      <td>Neurology</td>
+                      <td><span class="status-pill status-pending">In Triage</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>01:30 PM</strong></td>
+                      <td>#PT-8824 (Adult)</td>
+                      <td>Dr. Marcus Vance</td>
+                      <td>Orthopedics</td>
+                      <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                    </tr>
+                    <tr>
+                      <td><strong>02:45 PM</strong></td>
+                      <td>#PT-8829 (Adult)</td>
+                      <td>Dr. Priya Patel</td>
+                      <td>General Medicine</td>
+                      <td><span class="status-pill status-completed">Completed</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p style="font-size: 0.78rem; color: rgba(18,60,70,0.55); margin-top: 14px; font-style: italic;">
+                * Direct identifier masking enabled: sensitive medical details restricted to credentialed clinical staff.
+              </p>
+            </div>
+
+            <!-- Department Utilization -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <h3 class="panel-title"><i class="fa-solid fa-chart-simple"></i> Department Utilization</h3>
+                <span style="font-size: 0.8rem; color: #42BFA5; font-weight: 600;">Daily Capacity</span>
+              </div>
+
+              <div class="utilization-list">
+                <div class="util-item">
+                  <div class="util-label-row">
+                    <span>Cardiology Diagnostics</span>
+                    <strong>88%</strong>
+                  </div>
+                  <div class="util-bar-bg"><div class="util-bar-fill" style="width: 88%;"></div></div>
+                </div>
+
+                <div class="util-item">
+                  <div class="util-label-row">
+                    <span>Orthopedic Surgical Theaters</span>
+                    <strong>74%</strong>
+                  </div>
+                  <div class="util-bar-bg"><div class="util-bar-fill" style="width: 74%;"></div></div>
+                </div>
+
+                <div class="util-item">
+                  <div class="util-label-row">
+                    <span>3T MRI & Radiology Suites</span>
+                    <strong>92%</strong>
+                  </div>
+                  <div class="util-bar-bg"><div class="util-bar-fill" style="width: 92%;"></div></div>
+                </div>
+
+                <div class="util-item">
+                  <div class="util-label-row">
+                    <span>General Outpatient Clinics</span>
+                    <strong>65%</strong>
+                  </div>
+                  <div class="util-bar-bg"><div class="util-bar-fill" style="width: 65%;"></div></div>
+                </div>
+
+                <div class="util-item">
+                  <div class="util-label-row">
+                    <span>Pediatrics Care Wing</span>
+                    <strong>70%</strong>
+                  </div>
+                  <div class="util-bar-bg"><div class="util-bar-fill" style="width: 70%;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANELS: Weekly Appointment Trend Chart & Pending Billing Items -->
+          <div class="dashboard-grid-2">
+            <!-- Appointment Trend Chart -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <h3 class="panel-title"><i class="fa-solid fa-chart-line"></i> Weekly Appointment Volume</h3>
+                <span style="font-size: 0.82rem; color: var(--primary-muted);">Mon – Sun Trend</span>
+              </div>
+
+              <div class="chart-container">
+                <div class="chart-bar-group">
+                  <div class="chart-bar" style="height: 65%;"><span class="chart-bar-val">42</span></div>
+                  <span class="chart-label">Mon</span>
+                </div>
+                <div class="chart-bar-group">
+                  <div class="chart-bar" style="height: 80%;"><span class="chart-bar-val">52</span></div>
+                  <span class="chart-label">Tue</span>
+                </div>
+                <div class="chart-bar-group">
+                  <div class="chart-bar" style="height: 90%;"><span class="chart-bar-val">58</span></div>
+                  <span class="chart-label">Wed</span>
+                </div>
+                <div class="chart-bar-group">
+                  <div class="chart-bar" style="height: 75%;"><span class="chart-bar-val">48</span></div>
+                  <span class="chart-label">Thu</span>
+                </div>
+                <div class="chart-bar-group">
+                  <div class="chart-bar" style="height: 85%;"><span class="chart-bar-val">55</span></div>
+                  <span class="chart-label">Fri</span>
+                </div>
+                <div class="chart-bar-group">
+                  <div class="chart-bar" style="height: 55%;"><span class="chart-bar-val">36</span></div>
+                  <span class="chart-label">Sat</span>
+                </div>
+                <div class="chart-bar-group">
+                  <div class="chart-bar" style="height: 35%;"><span class="chart-bar-val">22</span></div>
+                  <span class="chart-label">Sun</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pending Billing Items & Operational Alerts -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <h3 class="panel-title"><i class="fa-solid fa-receipt"></i> Pending Operational Items</h3>
+                <span class="status-pill status-pending">Action Required</span>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="background: var(--surface-alt); padding: 14px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="font-size: 0.92rem; display: block;">Insurance Pre-Auth #INV-492</strong>
+                    <span style="font-size: 0.78rem; color: var(--primary-muted);">Star Health • Robotic Knee Replacement</span>
+                  </div>
+                  <button type="button" class="btn btn-outline btn-sm" onclick="showToast('Pre-auth verified', 'fa-check')">Review</button>
+                </div>
+
+                <div style="background: var(--surface-alt); padding: 14px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="font-size: 0.92rem; display: block;">MRI Scanner 3T Calibration</strong>
+                    <span style="font-size: 0.78rem; color: var(--primary-muted);">Siemens Healthineers Scheduled Service</span>
+                  </div>
+                  <button type="button" class="btn btn-outline btn-sm" onclick="showToast('Calibration acknowledged', 'fa-check')">Status</button>
+                </div>
+
+                <div style="background: var(--surface-alt); padding: 14px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="font-size: 0.92rem; display: block;">Staff Shift Coverage — ER Wing</strong>
+                    <span style="font-size: 0.78rem; color: var(--primary-muted);">Bengaluru Campus Night Roster</span>
+                  </div>
+                  <button type="button" class="btn btn-outline btn-sm" onclick="showToast('Roster updated', 'fa-check')">Manage</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             TAB 2: PATIENTS & DOCTORS
+             =================================================================== -->
+        <div class="dashboard-tab-panel" id="tab-patients-doctors" style="display: none;">
+          <div class="panel-card" style="margin-bottom: 28px;">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-solid fa-user-doctor"></i> Active Medical Faculty Roster</h3>
+              <a href="Doctors.html" class="btn btn-primary btn-sm">Add New Specialist</a>
+            </div>
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Doctor Name</th>
+                    <th>Department</th>
+                    <th>Qualifications</th>
+                    <th>Weekly Availability</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Dr. Sarah Jenkins</strong></td>
+                    <td>Cardiology</td>
+                    <td>MD, FACC, Harvard</td>
+                    <td>Mon - Thu (09:00 - 14:00)</td>
+                    <td><span class="status-pill status-confirmed">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Dr. Rajesh Sharma</strong></td>
+                    <td>Neurology</td>
+                    <td>MBBS, MS, MCh, AIIMS</td>
+                    <td>Mon, Wed, Fri (10:00 - 16:00)</td>
+                    <td><span class="status-pill status-confirmed">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Dr. Marcus Vance</strong></td>
+                    <td>Orthopedics</td>
+                    <td>MD, FRCS, Johns Hopkins</td>
+                    <td>Tue, Thu, Sat (08:30 - 13:30)</td>
+                    <td><span class="status-pill status-confirmed">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Dr. Elena Rostova</strong></td>
+                    <td>Pediatrics</td>
+                    <td>MD, FAAP, King's College</td>
+                    <td>Mon - Fri (09:00 - 15:00)</td>
+                    <td><span class="status-pill status-confirmed">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Dr. Priya Patel</strong></td>
+                    <td>General Medicine</td>
+                    <td>MD, MRCP (UK)</td>
+                    <td>Daily (08:00 - 14:00)</td>
+                    <td><span class="status-pill status-confirmed">Active</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             TAB 3: APPOINTMENTS
+             =================================================================== -->
+        <div class="dashboard-tab-panel" id="tab-appointments" style="display: none;">
+          <div class="panel-card">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-regular fa-calendar-check"></i> Master Appointment Queue</h3>
+              <a href="appointments.html" class="btn btn-primary btn-sm">Schedule New Visit</a>
+            </div>
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Ref ID</th>
+                    <th>Patient Identifier</th>
+                    <th>Attending Doctor</th>
+                    <th>Scheduled Slot</th>
+                    <th>Mode</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#STK-9018</td>
+                    <td>Patient PT-104</td>
+                    <td>Dr. Sarah Jenkins</td>
+                    <td>Today, 09:30 AM</td>
+                    <td>In-Clinic</td>
+                    <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                  </tr>
+                  <tr>
+                    <td>#STK-9019</td>
+                    <td>Patient PT-105</td>
+                    <td>Dr. Elena Rostova</td>
+                    <td>Today, 10:15 AM</td>
+                    <td>In-Clinic</td>
+                    <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                  </tr>
+                  <tr>
+                    <td>#STK-9020</td>
+                    <td>Patient PT-106</td>
+                    <td>Dr. Priya Patel</td>
+                    <td>Today, 11:30 AM</td>
+                    <td>Telehealth</td>
+                    <td><span class="status-pill status-pending">Pending</span></td>
+                  </tr>
+                  <tr>
+                    <td>#STK-9021</td>
+                    <td>Patient PT-107</td>
+                    <td>Dr. Marcus Vance</td>
+                    <td>Tomorrow, 09:00 AM</td>
+                    <td>In-Clinic</td>
+                    <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             TAB 4: REPORTS & BILLING
+             =================================================================== -->
+        <div class="dashboard-tab-panel" id="tab-reports-billing" style="display: none;">
+          <div class="panel-card">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-solid fa-file-invoice-dollar"></i> Operational Reports & Billing Overview</h3>
+              <button class="btn btn-outline btn-sm" onclick="showToast('Exporting billing CSV...', 'fa-file-excel')">Export Statement</button>
+            </div>
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Invoice #</th>
+                    <th>Category</th>
+                    <th>Billing Entity</th>
+                    <th>Amount</th>
+                    <th>Payment Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>INV-2026-081</td>
+                    <td>Cardiology Stent Procedure</td>
+                    <td>TPA Insurer Settled</td>
+                    <td>₹1,85,000</td>
+                    <td><span class="status-pill status-completed">Paid</span></td>
+                  </tr>
+                  <tr>
+                    <td>INV-2026-082</td>
+                    <td>Executive Health Package</td>
+                    <td>Self-Pay Digital</td>
+                    <td>₹14,500</td>
+                    <td><span class="status-pill status-completed">Paid</span></td>
+                  </tr>
+                  <tr>
+                    <td>INV-2026-083</td>
+                    <td>3T MRI Brain Contrast</td>
+                    <td>Corporate Health Card</td>
+                    <td>₹11,200</td>
+                    <td><span class="status-pill status-pending">Pending</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             TAB 5: SETTINGS
+             =================================================================== -->
+        <div class="dashboard-tab-panel" id="tab-settings" style="display: none;">
+          <div class="panel-card" style="max-width: 680px;">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-solid fa-gear"></i> System Preferences & Security</h3>
+            </div>
+            <form onsubmit="event.preventDefault(); showToast('Settings saved successfully.', 'fa-check');">
+              <div class="form-group">
+                <label class="form-label">Administrator Display Name</label>
+                <input type="text" class="form-input" value="Dr. Clinical Director" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Notification Email Alerts</label>
+                <input type="email" class="form-input" value="admin@stacklyhealth.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Data Privacy Level</label>
+                <select class="form-select">
+                  <option selected>Strict Healthcare Compliance (Mask Identifiers)</option>
+                  <option>Standard Clinical Access</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary" style="margin-top: 14px;">Save Configuration</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast Notice Container -->
+  <div class="toast-notice" id="toast-notice"></div>
+
+  <!-- Scripts -->
+  <script src="js/dashboard.js"></script>
+  <script>
+    function showToast(msg, icon = 'fa-check') {
+      const toast = document.getElementById('toast-notice');
+      if (!toast) return;
+      toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${msg}</span>`;
+      toast.classList.add('show');
+      setTimeout(() => { toast.classList.remove('show'); }, 3500);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create an Account — STACKLY Healthcare</title>
+  <meta name="description" content="Register your STACKLY Healthcare patient or administration account. Coordinate appointments, prescriptions, and digital records.">
+  
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="auth-body">
+
+  <!-- Background visual elements matching screenshot -->
+  <div class="auth-bg-shape"></div>
+  <div class="auth-bg-glow"></div>
+
+  <!-- Top bar with Back to Home & STACKLY Logo -->
+  <header class="auth-header-bar">
+    <a href="index.html" class="auth-back-link" id="auth-back-home">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span>Back to Home</span>
+    </a>
+
+    <a href="index.html" class="auth-logo-link">
+      <img src="Assets/Brand-logo.webp" alt="STACKLY Healthcare Logo" class="auth-brand-logo" width="160" height="38">
+    </a>
+  </header>
+
+  <!-- Centered Signup Card -->
+  <div class="auth-card-container">
+    <div class="auth-card">
+      <div class="auth-title-block">
+        <h1 class="auth-title">Create an Account</h1>
+        <p class="auth-subtitle">Join STACKLY today</p>
+      </div>
+
+      <!-- Feedback Success Banner -->
+      <div class="auth-alert auth-alert-success" id="signup-alert-success">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Account created successfully! Redirecting to login...</span>
+      </div>
+
+      <form id="signup-form" novalidate>
+        <!-- Sign Up As Dropdown -->
+        <div class="auth-form-group">
+          <label for="signup-role" class="auth-label">Sign Up As</label>
+          <div class="auth-input-wrapper">
+            <i class="fa-regular fa-user auth-input-icon"></i>
+            <select id="signup-role" class="auth-select" required>
+              <option value="Client" selected>Client</option>
+              <option value="Admin">Admin</option>
+            </select>
+            <i class="fa-solid fa-chevron-down auth-select-arrow"></i>
+          </div>
+        </div>
+
+        <!-- Full Name -->
+        <div class="auth-form-group">
+          <label for="signup-name" class="auth-label">Full Name</label>
+          <div class="auth-input-wrapper">
+            <i class="fa-regular fa-user auth-input-icon"></i>
+            <input type="text" id="signup-name" class="auth-input" placeholder="John Doe" required>
+          </div>
+          <span class="auth-field-error">Please enter your full name</span>
+        </div>
+
+        <!-- Email Address -->
+        <div class="auth-form-group">
+          <label for="signup-email" class="auth-label">Email Address</label>
+          <div class="auth-input-wrapper">
+            <i class="fa-regular fa-envelope auth-input-icon"></i>
+            <input type="email" id="signup-email" class="auth-input" placeholder="user@example.com" required>
+          </div>
+          <span class="auth-field-error">Please enter a valid email address</span>
+        </div>
+
+        <!-- Password -->
+        <div class="auth-form-group">
+          <label for="signup-password" class="auth-label">Password</label>
+          <div class="auth-input-wrapper">
+            <i class="fa-solid fa-lock auth-input-icon"></i>
+            <input type="password" id="signup-password" class="auth-input" placeholder="••••••••" required>
+            <button type="button" class="auth-password-toggle" aria-label="Toggle password visibility">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+          <span class="auth-field-error">Password must be at least 6 characters</span>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="auth-submit-btn" id="signup-submit-btn">
+          Sign Up
+        </button>
+
+        <!-- Already Have Account Prompt -->
+        <div class="auth-footer-prompt">
+          Already have an account? 
+          <a href="Login.html" class="auth-footer-link">Login here</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- GSAP from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,1118 @@
+/* ==========================================================================
+   STACKLY HEALTHCARE - PAGES STYLESHEET (css/pages.css)
+   Sections for Home, Services, Doctors, About, Contact, Appointments, 404
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   HOME HERO SECTION
+   -------------------------------------------------------------------------- */
+.home-hero {
+  position: relative;
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-dark);
+  color: var(--bg-surface);
+  overflow: hidden;
+  padding: 80px 0;
+}
+
+.home-hero-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.home-hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.32;
+  transform: scale(1.05);
+  will-change: transform;
+}
+
+.home-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 36, 43, 0.95) 0%,
+    rgba(18, 60, 70, 0.85) 55%,
+    rgba(18, 60, 70, 0.55) 100%
+  );
+  z-index: 2;
+}
+
+.home-hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 780px;
+}
+
+.home-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(66, 191, 165, 0.15);
+  border: 1px solid rgba(66, 191, 165, 0.35);
+  color: var(--accent);
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.home-hero-title {
+  font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+  line-height: 1.12;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+}
+
+.home-hero-title span {
+  color: var(--accent);
+  display: inline-block;
+}
+
+.home-hero-desc {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: rgba(244, 248, 247, 0.88);
+  margin-bottom: 38px;
+  max-width: 650px;
+}
+
+.home-hero-ctas {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 48px;
+}
+
+.hero-highlights {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(244, 248, 247, 0.18);
+}
+
+.hero-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-highlight-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: rgba(66, 191, 165, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.hero-highlight-text h5 {
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.hero-highlight-text p {
+  color: rgba(244, 248, 247, 0.7);
+  font-size: 0.82rem;
+}
+
+/* --------------------------------------------------------------------------
+   01. MEDICAL DEPARTMENTS
+   -------------------------------------------------------------------------- */
+.department-card {
+  background: var(--surface-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--surface-border);
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.department-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.dept-img-wrap {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.dept-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.department-card:hover .dept-img-wrap img {
+  transform: scale(1.08);
+}
+
+.dept-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(18, 60, 70, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--accent);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.dept-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.dept-body h3 {
+  font-size: 1.45rem;
+  margin-bottom: 12px;
+}
+
+.dept-body p {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.dept-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 0.92rem;
+}
+
+.dept-link:hover {
+  color: var(--accent-dark);
+}
+
+.dept-link i {
+  color: var(--accent);
+  transition: transform 0.2s ease;
+}
+
+.dept-link:hover i {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   02. MEET OUR DOCTORS
+   -------------------------------------------------------------------------- */
+.doctor-card {
+  background: var(--surface-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--surface-border);
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.doctor-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.doctor-avatar-wrap {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+  background: var(--surface-alt);
+}
+
+.doctor-avatar-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s ease;
+}
+
+.doctor-card:hover .doctor-avatar-wrap img {
+  transform: scale(1.05);
+}
+
+.doctor-badge-status {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(244, 248, 247, 0.92);
+  backdrop-filter: blur(6px);
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: var(--shadow-sm);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.doctor-info {
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.doctor-specialty {
+  color: var(--accent-dark);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.doctor-name {
+  font-size: 1.35rem;
+  margin-bottom: 8px;
+}
+
+.doctor-quals {
+  font-size: 0.88rem;
+  color: var(--primary-muted);
+  margin-bottom: 14px;
+}
+
+.doctor-availability {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--primary);
+  margin-bottom: 22px;
+  padding: 8px 12px;
+  background: var(--surface-alt);
+  border-radius: var(--radius-sm);
+}
+
+.doctor-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: auto;
+}
+
+/* --------------------------------------------------------------------------
+   03. APPOINTMENT BOOKING JOURNEY (3 STEPS)
+   -------------------------------------------------------------------------- */
+.journey-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  position: relative;
+}
+
+.step-card {
+  background: var(--surface-card);
+  padding: 40px 32px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--surface-border);
+  position: relative;
+  transition: var(--transition);
+}
+
+.step-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+.step-number {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  color: rgba(18, 60, 70, 0.1);
+  line-height: 1;
+}
+
+.step-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-md);
+  background: var(--accent-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+}
+
+.step-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+}
+
+.step-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   05. DIGITAL PATIENT CARE
+   -------------------------------------------------------------------------- */
+.digital-care-split {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.digital-care-image-col {
+  position: relative;
+}
+
+.digital-care-main-img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow-lg);
+}
+
+.floating-stat-card {
+  position: absolute;
+  bottom: -24px;
+  right: -24px;
+  background: var(--surface-card);
+  padding: 20px 24px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.floating-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.feature-check-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.feature-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.check-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  color: var(--accent-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   06. WHY CHOOSE US
+   -------------------------------------------------------------------------- */
+.why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.why-us-card {
+  background: var(--surface-card);
+  padding: 36px 26px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--surface-border);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.why-us-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+.why-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
+  background: var(--accent-light);
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.why-us-card h4 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+.why-us-card p {
+  font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   07. PATIENT EXPERIENCES (TESTIMONIALS)
+   -------------------------------------------------------------------------- */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.testimonial-card {
+  background: var(--surface-card);
+  padding: 36px 30px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+.testimonial-stars {
+  color: #F5A623;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 4px;
+}
+
+.testimonial-text {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--primary-muted);
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-top: 1px solid var(--surface-border);
+  padding-top: 18px;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--accent-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.author-info h5 {
+  font-size: 0.98rem;
+  margin-bottom: 2px;
+}
+
+.author-info span {
+  font-size: 0.8rem;
+  color: var(--primary-muted);
+}
+
+/* --------------------------------------------------------------------------
+   08. HEALTH RESOURCES
+   -------------------------------------------------------------------------- */
+.resource-card {
+  background: var(--surface-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--surface-border);
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.resource-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.resource-img-wrap {
+  height: 200px;
+  overflow: hidden;
+}
+
+.resource-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.resource-card:hover .resource-img-wrap img {
+  transform: scale(1.06);
+}
+
+.resource-content {
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.resource-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: var(--accent-dark);
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.resource-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.resource-content p {
+  font-size: 0.92rem;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* --------------------------------------------------------------------------
+   10. FINAL CTA BANNER
+   -------------------------------------------------------------------------- */
+.final-cta-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  padding: 72px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(66, 191, 165, 0.25);
+  box-shadow: var(--shadow-lg);
+}
+
+.final-cta-banner::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(66, 191, 165, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.final-cta-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  color: #FFFFFF;
+  margin-bottom: 18px;
+}
+
+.final-cta-desc {
+  font-size: 1.15rem;
+  color: rgba(244, 248, 247, 0.85);
+  max-width: 640px;
+  margin: 0 auto 36px auto;
+}
+
+.final-cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+/* --------------------------------------------------------------------------
+   DOCTORS PAGE FILTER & SEARCH BAR
+   -------------------------------------------------------------------------- */
+.doctor-filter-bar {
+  background: var(--surface-card);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.doctor-search-box {
+  position: relative;
+  width: 100%;
+}
+
+.doctor-search-box i {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-muted);
+  font-size: 1.1rem;
+}
+
+.doctor-search-input {
+  width: 100%;
+  padding: 16px 20px 16px 52px;
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-full);
+  background: var(--surface-alt);
+  color: var(--primary);
+  font-size: 1rem;
+  transition: var(--transition-fast);
+}
+
+.doctor-search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+.department-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.dept-tab-btn {
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  background: var(--surface-alt);
+  border: 1px solid var(--surface-border);
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.dept-tab-btn:hover {
+  background: var(--surface-white);
+  border-color: var(--accent);
+}
+
+.dept-tab-btn.active {
+  background: var(--primary);
+  color: var(--bg-surface);
+  border-color: var(--primary);
+}
+
+/* --------------------------------------------------------------------------
+   BRANCH OFFICES (CONTACT PAGE)
+   Screenshot 2 Exact Data
+   -------------------------------------------------------------------------- */
+.branch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.branch-card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.branch-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+.branch-city-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--primary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.branch-city-title i {
+  color: var(--accent);
+  font-size: 1.3rem;
+}
+
+.branch-address {
+  font-size: 0.96rem;
+  line-height: 1.8;
+  color: var(--primary-muted);
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.branch-contact-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 18px;
+  border-top: 1px solid var(--surface-border);
+  font-size: 0.9rem;
+}
+
+.branch-contact-meta span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary);
+}
+
+.branch-contact-meta span i {
+  color: var(--accent-dark);
+  width: 18px;
+}
+
+/* --------------------------------------------------------------------------
+   CONTACT FORM & APPOINTMENTS FORM
+   -------------------------------------------------------------------------- */
+.contact-form-card {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  padding: 44px;
+  box-shadow: var(--shadow-md);
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--primary);
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+  color: var(--primary);
+  font-size: 0.95rem;
+  transition: var(--transition-fast);
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none;
+  background: #FFFFFF;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.form-error {
+  color: #D32F2F;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: none;
+  margin-top: 4px;
+}
+
+.form-group.has-error .form-input,
+.form-group.has-error .form-select,
+.form-group.has-error .form-textarea {
+  border-color: #D32F2F;
+}
+
+.form-group.has-error .form-error {
+  display: block;
+}
+
+.form-success-banner {
+  background: var(--accent-light);
+  border: 1px solid var(--accent);
+  color: var(--primary-dark);
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+  display: none;
+  align-items: center;
+  gap: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   APPOINTMENTS BOOKING STEPPER & SLOTS
+   -------------------------------------------------------------------------- */
+.booking-wizard-wrapper {
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 48px;
+  margin-bottom: 60px;
+}
+
+.slot-pills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.slot-pill-btn {
+  padding: 12px;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--surface-border);
+  background: var(--surface-alt);
+  color: var(--primary);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: var(--transition-fast);
+}
+
+.slot-pill-btn:hover {
+  background: var(--surface-white);
+  border-color: var(--accent);
+}
+
+.slot-pill-btn.selected {
+  background: var(--accent);
+  color: var(--primary-dark);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.appointment-summary-box {
+  background: var(--surface-alt);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin: 28px 0;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(18, 60, 70, 0.08);
+  font-size: 0.92rem;
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.summary-label {
+  color: var(--primary-muted);
+}
+
+.summary-val {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* --------------------------------------------------------------------------
+   CUSTOM 404 PAGE
+   -------------------------------------------------------------------------- */
+.error-404-section {
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.error-404-card {
+  max-width: 680px;
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  padding: 64px 44px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.error-404-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.error-code-badge {
+  font-family: var(--font-heading);
+  font-size: clamp(5rem, 12vw, 8.5rem);
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 16px;
+}
+
+.error-pulse-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  color: var(--accent-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  margin-bottom: 24px;
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(66, 191, 165, 0.4); }
+  70% { box-shadow: 0 0 0 18px rgba(66, 191, 165, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(66, 191, 165, 0); }
+}
+
+.error-actions-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+/* Responsive adjustments for inner pages */
+@media (max-width: 1024px) {
+  .digital-care-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .floating-stat-card {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 20px;
+  }
+  .why-us-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .home-hero {
+    padding: 60px 0;
+  }
+  .hero-highlights {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .journey-steps {
+    grid-template-columns: 1fr;
+  }
+  .why-us-grid, .testimonials-grid, .branch-grid, .form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .slot-pills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-form-card, .booking-wizard-wrapper, .error-404-card {
+    padding: 30px 20px;
+  }
+  .final-cta-banner {
+    padding: 48px 24px;
+  }
+}

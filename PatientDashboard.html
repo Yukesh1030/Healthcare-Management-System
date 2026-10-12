@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Portal Dashboard — STACKLY Healthcare</title>
+  <meta name="description" content="STACKLY Healthcare Patient Portal. Track upcoming appointments, view medical lab reports, review digital prescriptions, and manage care preferences.">
+  
+  <!-- Google Fonts: DM Serif Display & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    <!-- =======================================================================
+         PATIENT PORTAL SIDEBAR — 5 MENUS
+         1. Dashboard
+         2. My Appointments
+         3. Medical Records
+         4. Prescriptions & Reports
+         5. Profile & Support
+         ======================================================================= -->
+    <aside class="dashboard-sidebar" aria-label="Patient Navigation Sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand-link">
+          <img src="Assets/Brand-logo.webp" alt="STACKLY" class="sidebar-logo">
+        </a>
+        <span class="sidebar-role-badge">Patient</span>
+        <button class="sidebar-close-btn" aria-label="Close sidebar"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <!-- 1. Dashboard -->
+        <a href="#dashboard" class="sidebar-nav-item active" data-tab="overview">
+          <i class="fa-solid fa-table-columns"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <!-- 2. My Appointments -->
+        <a href="#appointments" class="sidebar-nav-item" data-tab="appointments">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span>My Appointments</span>
+        </a>
+
+        <!-- 3. Medical Records -->
+        <a href="#records" class="sidebar-nav-item" data-tab="records">
+          <i class="fa-solid fa-file-medical"></i>
+          <span>Medical Records</span>
+        </a>
+
+        <!-- 4. Prescriptions & Reports -->
+        <a href="#prescriptions" class="sidebar-nav-item" data-tab="prescriptions">
+          <i class="fa-solid fa-prescription-bottle-medical"></i>
+          <span>Prescriptions & Reports</span>
+        </a>
+
+        <!-- 5. Profile & Support -->
+        <a href="#profile" class="sidebar-nav-item" data-tab="profile">
+          <i class="fa-regular fa-user"></i>
+          <span>Profile & Support</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user-block">
+          <div class="sidebar-user-avatar">PT</div>
+          <div class="sidebar-user-details">
+            <div class="sidebar-user-name" id="patient-greeting-name">Patient User</div>
+            <div class="sidebar-user-email">patient@example.com</div>
+          </div>
+        </div>
+        <a href="Login.html" class="sidebar-logout-btn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- =======================================================================
+         MAIN PORTAL CONTENT AREA
+         ======================================================================= -->
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button class="mobile-sidebar-toggle" aria-label="Open sidebar menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="topbar-title-wrap">
+            <h1 id="dashboard-page-title">Patient Portal Overview</h1>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <button type="button" class="refresh-btn" id="dashboard-refresh-btn">
+            <i class="fa-solid fa-rotate"></i>
+            <span>Refresh</span>
+          </button>
+
+          <a href="appointments.html" class="btn btn-primary btn-sm">
+            <i class="fa-solid fa-plus"></i>
+            <span>Book Visit</span>
+          </a>
+
+          <a href="index.html" class="btn btn-outline btn-sm">
+            <i class="fa-solid fa-house"></i>
+            <span>Public Site</span>
+          </a>
+        </div>
+      </header>
+
+      <div class="dashboard-content-area">
+        <!-- ===================================================================
+             TAB 1: PATIENT OVERVIEW
+             Next appointment, Doctor details, Recent prescriptions, Available reports
+             =================================================================== -->
+        <div class="dashboard-tab-panel" id="tab-overview" style="display: block;">
+          <!-- NEXT APPOINTMENT HIGHLIGHT CARD -->
+          <div class="card" style="margin-bottom: 28px; background: linear-gradient(135deg, #FFFFFF 0%, #EBF3F1 100%); border-left: 6px solid var(--accent);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 16px;">
+              <div>
+                <span class="badge-tag" style="margin-bottom: 6px;">Next Upcoming Consultation</span>
+                <h2 style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--primary);">Cardiology Follow-Up</h2>
+                <p style="color: var(--primary-muted); font-size: 0.95rem;">With Dr. Sarah Jenkins, MD, FACC</p>
+              </div>
+              <div>
+                <span class="status-pill status-confirmed" style="font-size: 0.9rem; padding: 6px 14px;">
+                  <i class="fa-solid fa-check" style="margin-right: 6px;"></i> Confirmed
+                </span>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; background: #FFFFFF; padding: 18px 22px; border-radius: 12px; border: 1px solid var(--surface-border); margin-bottom: 20px;">
+              <div>
+                <span style="font-size: 0.78rem; color: var(--primary-muted); display: block;">DATE & TIME</span>
+                <strong style="color: var(--primary); font-size: 1rem;"><i class="fa-regular fa-calendar" style="color: var(--accent); margin-right: 6px;"></i> Tomorrow, 09:30 AM</strong>
+              </div>
+              <div>
+                <span style="font-size: 0.78rem; color: var(--primary-muted); display: block;">LOCATION</span>
+                <strong style="color: var(--primary); font-size: 1rem;"><i class="fa-solid fa-location-dot" style="color: var(--accent); margin-right: 6px;"></i> Bengaluru Campus • Suite 304</strong>
+              </div>
+              <div>
+                <span style="font-size: 0.78rem; color: var(--primary-muted); display: block;">BOOKING REFERENCE</span>
+                <strong style="color: var(--primary); font-size: 1rem; font-family: monospace;">#STK-2026-9042</strong>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="appointments.html" class="btn btn-outline btn-sm">Reschedule Slot</a>
+              <button type="button" class="btn btn-outline btn-sm" onclick="showToast('Appointment instructions sent to email.', 'fa-envelope')">Download Pre-Visit Form</button>
+            </div>
+          </div>
+
+          <!-- SUMMARY KPI CARDS -->
+          <div class="kpi-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 28px;">
+            <div class="kpi-card">
+              <div class="kpi-info">
+                <span class="kpi-title">Active Prescriptions</span>
+                <span class="kpi-value">3</span>
+                <span class="kpi-badge"><i class="fa-solid fa-pills"></i> Current cycle</span>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-solid fa-capsules"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-info">
+                <span class="kpi-title">Completed Consults</span>
+                <span class="kpi-value">8</span>
+                <span class="kpi-badge"><i class="fa-solid fa-clipboard-check"></i> Past 12 mos</span>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-regular fa-calendar-check"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-info">
+                <span class="kpi-title">Available Lab Reports</span>
+                <span class="kpi-value">5</span>
+                <span class="kpi-badge"><i class="fa-solid fa-file-pdf"></i> Verified ready</span>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-solid fa-vial-virus"></i></div>
+            </div>
+          </div>
+
+          <!-- PANELS: Recent Prescriptions & Available Reports -->
+          <div class="dashboard-grid-2">
+            <!-- Recent Prescriptions -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <h3 class="panel-title"><i class="fa-solid fa-prescription"></i> Recent Active Prescriptions</h3>
+                <span style="font-size: 0.8rem; color: var(--primary-muted);">Updated 3 days ago</span>
+              </div>
+
+              <div class="data-table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Medication</th>
+                      <th>Dosage</th>
+                      <th>Prescribing Doctor</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Atorvastatin</strong></td>
+                      <td>10mg, Once daily (Night)</td>
+                      <td>Dr. Sarah Jenkins</td>
+                      <td><button class="btn btn-outline btn-sm" onclick="showToast('Refill request logged with pharmacy.', 'fa-check')">Refill</button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Metformin HCl</strong></td>
+                      <td>500mg, Twice daily (Meals)</td>
+                      <td>Dr. Priya Patel</td>
+                      <td><button class="btn btn-outline btn-sm" onclick="showToast('Refill request logged with pharmacy.', 'fa-check')">Refill</button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Vitamin D3 Capsule</strong></td>
+                      <td>60,000 IU, Weekly</td>
+                      <td>Dr. Priya Patel</td>
+                      <td><button class="btn btn-outline btn-sm" onclick="showToast('Refill request logged with pharmacy.', 'fa-check')">Refill</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Available Reports -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <h3 class="panel-title"><i class="fa-solid fa-file-lines"></i> Verified Diagnostic Reports</h3>
+                <span style="font-size: 0.8rem; color: #42BFA5; font-weight: 600;">Secure Access</span>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="background: var(--surface-alt); padding: 14px 18px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="font-size: 0.92rem; display: block;">Lipid Profile & HbA1c Panel</strong>
+                    <span style="font-size: 0.78rem; color: var(--primary-muted);">Oct 08, 2026 • Automated Lab</span>
+                  </div>
+                  <button class="btn btn-outline-accent btn-sm" onclick="showToast('Downloading verified PDF report...', 'fa-file-pdf')">
+                    <i class="fa-solid fa-download"></i> PDF
+                  </button>
+                </div>
+
+                <div style="background: var(--surface-alt); padding: 14px 18px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="font-size: 0.92rem; display: block;">2D Echocardiogram Summary</strong>
+                    <span style="font-size: 0.78rem; color: var(--primary-muted);">Oct 01, 2026 • Cardiology Imaging</span>
+                  </div>
+                  <button class="btn btn-outline-accent btn-sm" onclick="showToast('Downloading verified PDF report...', 'fa-file-pdf')">
+                    <i class="fa-solid fa-download"></i> PDF
+                  </button>
+                </div>
+
+                <div style="background: var(--surface-alt); padding: 14px 18px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="font-size: 0.92rem; display: block;">Complete Blood Count (CBC)</strong>
+                    <span style="font-size: 0.78rem; color: var(--primary-muted);">Sep 14, 2026 • Pathology</span>
+                  </div>
+                  <button class="btn btn-outline-accent btn-sm" onclick="showToast('Downloading verified PDF report...', 'fa-file-pdf')">
+                    <i class="fa-solid fa-download"></i> PDF
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             TAB 2: MY APPOINTMENTS
+             =================================================================== -->
+        <div class="dashboard-tab-panel" id="tab-appointments" style="display: none;">
+          <div class="panel-card">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-regular fa-calendar-check"></i> Complete Appointment History</h3>
+              <a href="appointments.html" class="btn btn-primary btn-sm">Schedule New Visit</a>
+            </div>
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Ref ID</th>
+                    <th>Specialist Doctor</th>
+                    <th>Department</th>
+                    <th>Appointment Date</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#STK-2026-9042</td>
+                    <td>Dr. Sarah Jenkins</td>
+                    <td>Cardiology</td>
+                    <td>Tomorrow, 09:30 AM</td>
+                    <td>In-Clinic</td>
+                    <td><span class="status-pill status-confirmed">Confirmed</span></td>
+                  </tr>
+                  <tr>
+                    <td>#STK-2026-8812</td>
+                    <td>Dr. Priya Patel</td>
+                    <td>General Medicine</td>
+                    <td>Oct 08, 2026</td>
+                    <td>In-Clinic</td>
+                    <td><span class="status-pill status-completed">Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td>#STK-2026-7940</td>
+                    <td>Dr. Marcus Vance</td>
+                    <td>Orthopedics</td>
+                    <td>Aug 22, 2026</td>
+                    <td>In-Clinic</td>
+                    <td><span class="status-pill status-completed">Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td>#STK-2026-6410</td>
+                    <td>Dr. David Kim</td>
+                    <td>Diagnostics</td>
+                    <td>Jul 10, 2026</td>
+                    <td>Lab Visit</td>
+                    <td><span class="status-pill status-completed">Completed</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             TAB 3: MEDICAL RECORDS
+             =================================================================== -->
+        <div class="dashboard-tab-panel" id="tab-records" style="display: none;">
+          <div class="panel-card">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-solid fa-file-medical"></i> Clinical Records & Notes</h3>
+              <button class="btn btn-outline btn-sm" onclick="showToast('Exporting encrypted summary...', 'fa-file-shield')">Export Complete Health Record</button>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--primary-muted); margin-bottom: 20px;">
+              Notice: Medical records are cryptographically secured and strictly synchronized from clinical consultation notes. No sensitive health records are stored in browser localStorage.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="background: var(--surface-alt); padding: 18px; border-radius: 12px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                  <strong style="color: var(--primary); font-size: 1rem;">Annual Health Evaluation — Dr. Priya Patel</strong>
+                  <span style="font-size: 0.8rem; color: var(--primary-muted);">Oct 08, 2026</span>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--primary-muted); line-height: 1.6;">
+                  Patient evaluated for routine checkup. Vitals within expected baseline. Fasting glucose well controlled. Recommended continuing current low-sodium diet and walking 30 minutes daily.
+                </p>
+              </div>
+
+              <div style="background: var(--surface-alt); padding: 18px; border-radius: 12px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                  <strong style="color: var(--primary); font-size: 1rem;">Orthopedic Knee Joint Assessment — Dr. Marcus Vance</strong>
+                  <span style="font-size: 0.8rem; color: var(--primary-muted);">Aug 22, 2026</span>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--primary-muted); line-height: 1.6;">
+                  Mild patellofemoral strain noted. No ligamentous tear on clinical testing. Recommended targeted quadriceps physical therapy protocol for 4 weeks.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             TAB 4: PRESCRIPTIONS & REPORTS
+             =================================================================== -->
+        <div class="dashboard-tab-panel" id="tab-prescriptions" style="display: none;">
+          <div class="panel-card">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-solid fa-prescription-bottle-medical"></i> Official Prescriptions & Lab Results</h3>
+              <button class="btn btn-primary btn-sm" onclick="showToast('Pharmacy delivery requested.', 'fa-truck-medical')">Order Delivery to Home</button>
+            </div>
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Document Date</th>
+                    <th>Title</th>
+                    <th>Issuing Department</th>
+                    <th>Doctor</th>
+                    <th>Download</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Oct 08, 2026</td>
+                    <td>Lipid & Metabolic Profile</td>
+                    <td>Clinical Biochemistry</td>
+                    <td>Dr. David Kim</td>
+                    <td><button class="btn btn-outline btn-sm" onclick="showToast('Downloading PDF...', 'fa-file-pdf')"><i class="fa-solid fa-file-pdf"></i> View PDF</button></td>
+                  </tr>
+                  <tr>
+                    <td>Oct 08, 2026</td>
+                    <td>Cardiology Electronic Rx</td>
+                    <td>Cardiology Outpatient</td>
+                    <td>Dr. Sarah Jenkins</td>
+                    <td><button class="btn btn-outline btn-sm" onclick="showToast('Downloading PDF...', 'fa-file-pdf')"><i class="fa-solid fa-file-pdf"></i> View PDF</button></td>
+                  </tr>
+                  <tr>
+                    <td>Oct 01, 2026</td>
+                    <td>Echocardiography Report</td>
+                    <td>Non-Invasive Cardiology</td>
+                    <td>Dr. Sarah Jenkins</td>
+                    <td><button class="btn btn-outline btn-sm" onclick="showToast('Downloading PDF...', 'fa-file-pdf')"><i class="fa-solid fa-file-pdf"></i> View PDF</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             TAB 5: PROFILE & SUPPORT
+             =================================================================== -->
+        <div class="dashboard-tab-panel" id="tab-profile" style="display: none;">
+          <div class="panel-card" style="max-width: 680px;">
+            <div class="panel-header">
+              <h3 class="panel-title"><i class="fa-regular fa-user"></i> Patient Profile & Preferences</h3>
+            </div>
+            <form onsubmit="event.preventDefault(); showToast('Profile preferences updated.', 'fa-check');">
+              <div class="form-group">
+                <label class="form-label">Full Legal Name</label>
+                <input type="text" class="form-input" value="Patient User" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Contact Email Address</label>
+                <input type="email" class="form-input" value="patient@example.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Primary Mobile Phone</label>
+                <input type="tel" class="form-input" value="+91 98765 43210" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Notification Channels</label>
+                <select class="form-select">
+                  <option selected>SMS and Email Notifications</option>
+                  <option>Email Only</option>
+                  <option>SMS Only</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary" style="margin-top: 12px;">Save Preferences</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-notice" id="toast-notice"></div>
+
+  <!-- Scripts -->
+  <script src="js/dashboard.js"></script>
+  <script>
+    function showToast(msg, icon = 'fa-check') {
+      const toast = document.getElementById('toast-notice');
+      if (!toast) return;
+      toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${msg}</span>`;
+      toast.classList.add('show');
+      setTimeout(() => { toast.classList.remove('show'); }, 3500);
+    }
+  </script>
+</body>
+</html>

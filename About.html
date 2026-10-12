@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — STACKLY Healthcare</title>
+  <meta name="description" content="Discover STACKLY Healthcare's mission, clinical story, healthcare philosophy, modern infrastructure, and multidisciplinary medical teams.">
+  
+  <!-- Google Fonts: DM Serif Display & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       SITE NAVBAR
+       ========================================================================= -->
+  <header class="site-header" id="main-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-link" id="brand-logo-link">
+        <img src="Assets/Brand-logo.webp" alt="STACKLY Healthcare Logo" class="brand-logo-img" width="160" height="38">
+      </a>
+
+      <!-- 5 Centered Navlinks -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link" id="nav-home">Home</a>
+        <a href="Service.html" class="nav-link" id="nav-services">Services</a>
+        <a href="Doctors.html" class="nav-link" id="nav-doctors">Doctors</a>
+        <a href="About.html" class="nav-link active" id="nav-about">About</a>
+        <a href="Contact.html" class="nav-link" id="nav-contact">Contact</a>
+      </nav>
+
+      <!-- Right Login Button & Mobile Toggle -->
+      <div class="nav-actions">
+        <a href="Login.html" class="nav-login-btn" id="nav-login-btn">
+          <i class="fa-regular fa-user"></i>
+          <span>Login</span>
+        </a>
+      </div>
+
+      <button class="mobile-nav-toggle" id="mobile-toggle-btn" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="Service.html" class="nav-link">Services</a>
+      <a href="Doctors.html" class="nav-link">Doctors</a>
+      <a href="About.html" class="nav-link active">About</a>
+      <a href="Contact.html" class="nav-link">Contact</a>
+      <a href="appointments.html" class="nav-link" style="color: var(--accent);">Book Appointment</a>
+      <a href="Login.html" class="nav-login-btn">
+        <i class="fa-regular fa-user"></i>
+        <span>Login</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- =======================================================================
+         1. ABOUT HERO SECTION
+         Hero: Better Care Through Better Coordination
+         Animated cover image, center aligned content
+         ======================================================================= -->
+    <section class="inner-hero" id="about-hero">
+      <img src="assets/images/hero/hero-about.webp" alt="STACKLY Healthcare Team" class="inner-hero-bg" width="1400" height="600">
+      <div class="inner-hero-overlay"></div>
+      <div class="container">
+        <div class="inner-hero-content">
+          <div class="breadcrumbs">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>About Us</span>
+          </div>
+          <h1 class="inner-hero-title">Better Care Through Better Coordination</h1>
+          <p class="inner-hero-desc">
+            Founded with the belief that patient well-being flourishes when specialized physicians, cutting-edge technology, and compassionate support work in perfect harmony.
+          </p>
+          <a href="#our-story" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-book-open-reader"></i>
+            <span>Discover Our Story</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         2. OUR STORY
+         ======================================================================= -->
+    <section class="section-padding" id="our-story">
+      <div class="container">
+        <div class="digital-care-split">
+          <div>
+            <span class="badge-tag"><i class="fa-solid fa-clock-rotate-left"></i> Origins & Growth</span>
+            <h2 class="section-title">A Journey Rooted in Clinical Purpose</h2>
+            <p style="margin-bottom: 18px; line-height: 1.8;">
+              STACKLY Healthcare was established by a coalition of senior physicians and health system innovators who observed a persistent challenge in modern healthcare: fragmented care. Patients were shuttling between disconnected clinics, repeating lab tests, and managing their own medical records without unified guidance.
+            </p>
+            <p style="margin-bottom: 24px; line-height: 1.8;">
+              We set out to engineer an integrated healthcare model where primary care physicians, sub-specialists, clinical diagnostic imaging, and personalized treatment plans exist within one cohesive, compassionate framework.
+            </p>
+            <div style="display: flex; gap: 28px; padding-top: 18px; border-top: 1px solid var(--surface-border);">
+              <div>
+                <strong style="font-family: var(--font-heading); font-size: 2.2rem; color: var(--primary);">2014</strong>
+                <span style="display: block; font-size: 0.82rem; color: var(--primary-muted);">Foundation Established</span>
+              </div>
+              <div>
+                <strong style="font-family: var(--font-heading); font-size: 2.2rem; color: var(--primary);">4</strong>
+                <span style="display: block; font-size: 0.82rem; color: var(--primary-muted);">Regional Health Campuses</span>
+              </div>
+              <div>
+                <strong style="font-family: var(--font-heading); font-size: 2.2rem; color: var(--primary);">99.2%</strong>
+                <span style="display: block; font-size: 0.82rem; color: var(--primary-muted);">Clinical Satisfaction</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <img src="assets/images/about/healthcare-team.webp" alt="STACKLY Clinical Consultation" class="digital-care-main-img" width="600" height="420" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         3. MISSION AND VISION
+         ======================================================================= -->
+    <section class="section-padding" style="background-color: var(--surface-alt);" id="mission-vision">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag"><i class="fa-solid fa-bullseye"></i> Our Guiding Principles</span>
+          <h2 class="section-title">Mission & Vision</h2>
+          <p class="section-subtitle">Guiding every diagnosis, every surgical intervention, and every interaction with our community.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card" style="padding: 44px 36px; border-left: 6px solid var(--primary);">
+            <div class="card-icon"><i class="fa-solid fa-compass"></i></div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 14px;">Our Mission</h3>
+            <p style="line-height: 1.8; font-size: 1.02rem;">
+              To make coordinated, evidence-based healthcare seamlessly accessible to every individual by bridging clinical specialization with compassionate human touch, transparent medical communication, and responsible clinical stewardship.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 44px 36px; border-left: 6px solid var(--accent);">
+            <div class="card-icon"><i class="fa-solid fa-eye"></i></div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 14px;">Our Vision</h3>
+            <p style="line-height: 1.8; font-size: 1.02rem;">
+              To be the benchmark for integrated clinical excellence where patient outcomes lead regional benchmarks, and where every patient feels recognized, understood, and proactively supported throughout life.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         4. HEALTHCARE PHILOSOPHY
+         ======================================================================= -->
+    <section class="section-padding" id="healthcare-philosophy">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag"><i class="fa-solid fa-heart-pulse"></i> Our Philosophy</span>
+          <h2 class="section-title">The Patient-Centered Philosophy</h2>
+          <p class="section-subtitle">We believe true healing requires more than prescriptions; it requires deep listening and trust.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+            <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Empathy First</h3>
+            <p>Every clinical encounter begins with active listening. We understand the emotional vulnerability that accompanies health concerns.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Evidence-Based Rigor</h3>
+            <p>Every therapy, diagnostic panel, and surgical recommendation strictly adheres to international clinical practice guidelines.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Radical Transparency</h3>
+            <p>Clear explanations of diagnostic results, transparent billing without hidden line items, and collaborative shared decision-making.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         5. CLINICAL TEAMS
+         ======================================================================= -->
+    <section class="section-padding" style="background-color: var(--surface-alt);" id="clinical-teams">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag"><i class="fa-solid fa-users-viewfinder"></i> Medical Faculty</span>
+          <h2 class="section-title">Multidisciplinary Clinical Teams</h2>
+          <p class="section-subtitle">Physicians, nurse practitioners, pharmacists, and rehabilitation specialists collaborating for you.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="doctor-card">
+            <div class="doctor-avatar-wrap">
+              <img src="assets/images/doctors/dr-sarah-cardiology.webp" alt="Cardiology Faculty" loading="lazy" width="400" height="280">
+            </div>
+            <div class="doctor-info">
+              <div class="doctor-specialty">Cardiovascular Division</div>
+              <h3 class="doctor-name">Cardiology Team</h3>
+              <p class="doctor-quals">12 Interventionalists & Electrophysiologists</p>
+              <a href="404.html" class="btn btn-outline btn-sm" style="margin-top: 14px;">View Department Faculty</a>
+            </div>
+          </div>
+
+          <div class="doctor-card">
+            <div class="doctor-avatar-wrap">
+              <img src="assets/images/doctors/dr-rajesh-neurology.webp" alt="Neurology Faculty" loading="lazy" width="400" height="280">
+            </div>
+            <div class="doctor-info">
+              <div class="doctor-specialty">Neurosciences Division</div>
+              <h3 class="doctor-name">Neurology Team</h3>
+              <p class="doctor-quals">9 Neurosurgeons & Neurologists</p>
+              <a href="404.html" class="btn btn-outline btn-sm" style="margin-top: 14px;">View Department Faculty</a>
+            </div>
+          </div>
+
+          <div class="doctor-card">
+            <div class="doctor-avatar-wrap">
+              <img src="assets/images/doctors/dr-marcus-orthopedics.webp" alt="Orthopedic Faculty" loading="lazy" width="400" height="280">
+            </div>
+            <div class="doctor-info">
+              <div class="doctor-specialty">Orthopedics & Sports</div>
+              <h3 class="doctor-name">Orthopedics Team</h3>
+              <p class="doctor-quals">14 Orthopedic Surgeons & Therapists</p>
+              <a href="404.html" class="btn btn-outline btn-sm" style="margin-top: 14px;">View Department Faculty</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         6. TECHNOLOGY AND PATIENT EXPERIENCE
+         ======================================================================= -->
+    <section class="section-padding" id="technology-experience">
+      <div class="container">
+        <div class="digital-care-split" style="direction: rtl;">
+          <div style="direction: ltr;">
+            <img src="assets/images/patient-care/digital-records.webp" alt="Medical Technology" class="digital-care-main-img" width="600" height="420" loading="lazy">
+          </div>
+
+          <div style="direction: ltr;">
+            <span class="badge-tag"><i class="fa-solid fa-microchip"></i> Modern Innovation</span>
+            <h2 class="section-title">Technology Serving Human Care</h2>
+            <p style="margin-bottom: 20px; line-height: 1.8;">
+              Technology at STACKLY is not designed to replace physician interaction, but to remove administrative friction. From AI-assisted early radiology anomaly detection to unified digital charting, our systems give clinicians more uninterrupted time with each patient.
+            </p>
+            <div class="feature-check-list">
+              <div class="feature-check-item">
+                <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                <div>
+                  <h4 style="font-size: 1.05rem;">Zero Waiting Room Confusion</h4>
+                  <p style="font-size: 0.92rem;">Automated mobile check-ins and live queue monitors keep you informed of your consult schedule.</p>
+                </div>
+              </div>
+              <div class="feature-check-item">
+                <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                <div>
+                  <h4 style="font-size: 1.05rem;">Cloud-Synchronized Imaging</h4>
+                  <p style="font-size: 0.92rem;">Direct access to your DICOM radiographic imaging from any internet-connected device.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         7. FACILITIES AND INFRASTRUCTURE
+         ======================================================================= -->
+    <section class="section-padding" style="background-color: var(--surface-alt);" id="facilities-infrastructure">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag"><i class="fa-solid fa-building-circle-check"></i> Built for Healing</span>
+          <h2 class="section-title">Facilities & Infrastructure</h2>
+          <p class="section-subtitle">Designed to promote healing, calm anxiety, and optimize surgical sterility standards.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="department-card">
+            <div class="dept-img-wrap">
+              <img src="assets/images/facilities/hospital-main.webp" alt="STACKLY Main Hospital Campus" loading="lazy" width="600" height="380">
+              <span class="dept-badge">Flagship Campus</span>
+            </div>
+            <div class="dept-body">
+              <h3>Integrated Medical Center</h3>
+              <p>Over 250,000 sq. ft. of climate-controlled clinical spaces featuring natural lighting and infection-control architecture.</p>
+              <a href="404.html" class="dept-link">Explore Campus <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="department-card">
+            <div class="dept-img-wrap">
+              <img src="assets/images/facilities/surgery-suite.webp" alt="Modular Surgical Suite" loading="lazy" width="600" height="380">
+              <span class="dept-badge">Operating Suites</span>
+            </div>
+            <div class="dept-body">
+              <h3>Modular Cleanroom Theaters</h3>
+              <p>Positive-pressure laminar airflow operating suites equipped with robotic surgical arms and high-def endoscopic systems.</p>
+              <a href="404.html" class="dept-link">Explore Campus <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="department-card">
+            <div class="dept-img-wrap">
+              <img src="assets/images/facilities/consultation-room.webp" alt="Private Consultation Suites" loading="lazy" width="600" height="380">
+              <span class="dept-badge">Outpatient Suites</span>
+            </div>
+            <div class="dept-body">
+              <h3>Acoustically Private Suites</h3>
+              <p>Designed for comfort and complete patient confidentiality during clinical histories and counseling discussions.</p>
+              <a href="404.html" class="dept-link">Explore Campus <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         8. CONTACT / APPOINTMENT CTA
+         ======================================================================= -->
+    <section class="section-padding" style="padding-top: 0;" id="about-cta">
+      <div class="container">
+        <div class="final-cta-banner">
+          <span class="badge-tag" style="background: rgba(66, 191, 165, 0.2); border-color: rgba(66, 191, 165, 0.4); color: #42BFA5;">
+            <i class="fa-solid fa-shield-heart"></i> Experience Coordinated Care
+          </span>
+          <h2 class="final-cta-title">Discover the Difference Thoughtful Healthcare Makes</h2>
+          <p class="final-cta-desc">
+            Join thousands of families who trust STACKLY Healthcare for their preventive checkups, specialist diagnoses, and chronic care management.
+          </p>
+          <div class="final-cta-actions">
+            <a href="appointments.html" class="btn btn-primary btn-lg">
+              <i class="fa-regular fa-calendar-check"></i>
+              <span>Book Appointment</span>
+            </a>
+            <a href="Contact.html" class="btn btn-outline" style="border-color: rgba(244,248,247,0.8); color: #F4F8F7;">
+              <i class="fa-regular fa-envelope"></i>
+              <span>Contact Our Team</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       SHARED FOOTER
+       ========================================================================= -->
+  <footer class="site-footer" id="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link">
+            <img src="Assets/Brand-logo.webp" alt="STACKLY Healthcare Logo" class="footer-logo-img" width="160" height="38">
+          </a>
+          <p class="footer-desc">
+            STACKLY Healthcare coordinates compassionate physician care, state-of-the-art diagnostics, and digitized patient management across premier clinical centers.
+          </p>
+          <div class="footer-socials">
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+            <li><a href="Service.html"><i class="fa-solid fa-angle-right"></i> Healthcare Services</a></li>
+            <li><a href="Doctors.html"><i class="fa-solid fa-angle-right"></i> Our Doctors</a></li>
+            <li><a href="About.html"><i class="fa-solid fa-angle-right"></i> About STACKLY</a></li>
+            <li><a href="Contact.html"><i class="fa-solid fa-angle-right"></i> Contact & Branches</a></li>
+            <li><a href="appointments.html"><i class="fa-solid fa-angle-right"></i> Book Appointment</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Specialties</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Cardiology Center</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Neurology & Spine</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Orthopedic Surgery</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Pediatric Wellness</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> 3T MRI & Imaging</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Clinical Pathology</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Patient Care</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Privacy Policy</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Terms of Service</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Accessibility Statement</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Insurance & Billing</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Patient Rights</a></li>
+            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Medical Research</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 STACKLY Healthcare Management System. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="404.html">Privacy</a>
+          <a href="404.html">Terms</a>
+          <a href="404.html">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP & ScrollTrigger from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Main Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>
