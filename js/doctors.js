@@ -187,6 +187,23 @@ function initDoctorsDirectory(container) {
         openDoctorModal(docId);
       });
     });
+
+    // Animate filtered doctor cards with GSAP
+    if (typeof gsap !== 'undefined') {
+      const cards = container.querySelectorAll('.doctor-card');
+      gsap.fromTo(cards,
+        { opacity: 0, y: 22, scale: 0.97 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          scale: 1, 
+          stagger: 0.05, 
+          duration: 0.45, 
+          ease: 'power2.out',
+          clearProps: 'all'
+        }
+      );
+    }
   }
 
   // Initial render
@@ -212,7 +229,7 @@ function initDoctorsDirectory(container) {
 }
 
 /**
- * Doctor Profile Modal Dialog
+ * Doctor Profile Modal Dialog with GSAP entrance physics
  */
 function openDoctorModal(docId) {
   const doc = DOCTORS_DATA.find(d => d.id === docId);
@@ -224,7 +241,7 @@ function openDoctorModal(docId) {
     modal.id = 'doctor-profile-modal';
     modal.className = 'modal-overlay';
     modal.style.cssText = `
-      position: fixed; inset: 0; background: rgba(18, 60, 70, 0.7);
+      position: fixed; inset: 0; background: rgba(18, 60, 70, 0.72);
       display: flex; align-items: center; justify-content: center;
       z-index: 9999; padding: 20px; backdrop-filter: blur(8px);
     `;
@@ -232,24 +249,25 @@ function openDoctorModal(docId) {
   }
 
   modal.innerHTML = `
-    <div style="
+    <div class="doctor-modal-card" style="
       background: #FFFFFF; border-radius: 24px; max-width: 600px; width: 100%;
-      overflow: hidden; box-shadow: 0 20px 50px rgba(18, 60, 70, 0.25);
-      position: relative; animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden; box-shadow: 0 24px 60px rgba(18, 60, 70, 0.3);
+      position: relative;
     ">
       <button id="close-doc-modal-btn" style="
-        position: absolute; top: 18px; right: 18px; background: rgba(244, 248, 247, 0.9);
-        border: none; width: 36px; height: 36px; border-radius: 50%;
+        position: absolute; top: 18px; right: 18px; background: rgba(244, 248, 247, 0.95);
+        border: none; width: 38px; height: 38px; border-radius: 50%;
         font-size: 1.1rem; color: #123C46; cursor: pointer; display: flex;
         align-items: center; justify-content: center; z-index: 10;
+        transition: transform 0.2s, background 0.2s;
       "><i class="fa-solid fa-xmark"></i></button>
       
       <div style="display: flex; flex-direction: column;">
         <div style="height: 220px; position: relative; overflow: hidden; background: #EBF3F1;">
           <img src="${doc.image}" alt="${doc.name}" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
-          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(18, 60, 70, 0.8) 100%);"></div>
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(18, 60, 70, 0.85) 100%);"></div>
           <div style="position: absolute; bottom: 16px; left: 24px; color: #FFFFFF;">
-            <span style="background: #42BFA5; color: #0A242B; padding: 3px 10px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+            <span style="background: #42BFA5; color: #0A242B; padding: 4px 12px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
               ${doc.deptName}
             </span>
             <h2 style="font-family: var(--font-heading); color: #FFFFFF; margin-top: 6px; font-size: 1.6rem;">${doc.name}</h2>
@@ -258,7 +276,7 @@ function openDoctorModal(docId) {
 
         <div style="padding: 28px 24px;">
           <p style="font-weight: 600; color: #123C46; font-size: 0.95rem; margin-bottom: 4px;">${doc.title}</p>
-          <p style="color: rgba(18, 60, 70, 0.7); font-size: 0.88rem; margin-bottom: 16px;">${doc.qualifications} • ${doc.experience}</p>
+          <p style="color: rgba(18, 60, 70, 0.7); font-size: 0.88rem; margin-bottom: 16px;">${doc.qualifications} &bull; ${doc.experience}</p>
           
           <p style="font-size: 0.94rem; line-height: 1.7; color: rgba(18, 60, 70, 0.8); margin-bottom: 20px;">
             ${doc.bio}
@@ -287,16 +305,46 @@ function openDoctorModal(docId) {
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
 
+  const modalCard = modal.querySelector('.doctor-modal-card');
+  if (typeof gsap !== 'undefined') {
+    gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 0.25 });
+    gsap.fromTo(modalCard,
+      { opacity: 0, scale: 0.85, y: 30 },
+      { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: 'back.out(1.5)' }
+    );
+  }
+
+  function closeModal() {
+    if (typeof gsap !== 'undefined') {
+      gsap.to(modalCard, {
+        opacity: 0,
+        scale: 0.88,
+        y: 20,
+        duration: 0.22,
+        ease: 'power2.in',
+        onComplete: () => {
+          gsap.to(modal, {
+            opacity: 0,
+            duration: 0.15,
+            onComplete: () => {
+              modal.style.display = 'none';
+              document.body.style.overflow = '';
+            }
+          });
+        }
+      });
+    } else {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+
   const closeBtn = document.getElementById('close-doc-modal-btn');
-  closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
-  });
+  closeBtn.addEventListener('click', closeModal);
 
   modal.addEventListener('click', (e) => {
     if (e.target === modal) {
-      modal.style.display = 'none';
-      document.body.style.overflow = '';
+      closeModal();
     }
   });
 }

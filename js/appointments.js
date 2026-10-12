@@ -128,6 +128,10 @@ function initAppointmentBooking() {
         btn.classList.add('selected');
         selectedSlot = btn.getAttribute('data-time') || btn.innerText.trim();
         if (sumTime) sumTime.innerText = selectedSlot;
+
+        if (typeof gsap !== 'undefined') {
+          gsap.fromTo(btn, { scale: 0.92 }, { scale: 1, duration: 0.25, ease: 'back.out(2)' });
+        }
       });
     });
   }
@@ -258,9 +262,56 @@ function showBookingConfirmation(details) {
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
 
-  document.getElementById('close-confirm-modal').addEventListener('click', () => {
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
+  const card = modal.firstElementChild;
+  const icon = modal.querySelector('i.fa-circle-check')?.parentElement;
+
+  if (typeof gsap !== 'undefined') {
+    gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 0.25 });
+    if (card) {
+      gsap.fromTo(card,
+        { opacity: 0, scale: 0.82, y: 30 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: 'back.out(1.6)' }
+      );
+    }
+    if (icon) {
+      gsap.fromTo(icon,
+        { scale: 0, rotation: -60 },
+        { scale: 1, rotation: 0, duration: 0.65, delay: 0.15, ease: 'elastic.out(1.2, 0.5)' }
+      );
+    }
+  }
+
+  function closeConfirmModal() {
+    if (typeof gsap !== 'undefined' && card) {
+      gsap.to(card, {
+        opacity: 0,
+        scale: 0.88,
+        y: 20,
+        duration: 0.22,
+        ease: 'power2.in',
+        onComplete: () => {
+          gsap.to(modal, {
+            opacity: 0,
+            duration: 0.15,
+            onComplete: () => {
+              modal.style.display = 'none';
+              document.body.style.overflow = '';
+            }
+          });
+        }
+      });
+    } else {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.getElementById('close-confirm-modal').addEventListener('click', closeConfirmModal);
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeConfirmModal();
+    }
   });
 }
 
