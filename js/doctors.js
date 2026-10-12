@@ -14,7 +14,7 @@ const DOCTORS_DATA = [
     experience: '14+ Years Experience',
     availability: 'Mon - Thu, 09:00 AM - 02:00 PM',
     rating: '4.9 (184 reviews)',
-    image: 'assets/images/doctors/dr-sarah-cardiology.webp',
+    image: 'Assets/images/doctors/dr-sarah-cardiology.webp',
     bio: 'Specializing in preventative cardiology, coronary interventions, and cardiovascular imaging with extensive clinical research at leading institutions.',
     slots: ['09:30 AM', '11:00 AM', '01:30 PM']
   },
@@ -28,7 +28,7 @@ const DOCTORS_DATA = [
     experience: '16+ Years Experience',
     availability: 'Mon, Wed, Fri, 10:00 AM - 04:00 PM',
     rating: '4.95 (220 reviews)',
-    image: 'assets/images/doctors/dr-rajesh-neurology.webp',
+    image: 'Assets/images/doctors/dr-rajesh-neurology.webp',
     bio: 'Expert in cranial surgery, spine reconstruction, and neuro-oncology with specialized fellowship in minimally invasive neurological procedures.',
     slots: ['10:15 AM', '01:00 PM', '03:30 PM']
   },
@@ -42,7 +42,7 @@ const DOCTORS_DATA = [
     experience: '12+ Years Experience',
     availability: 'Tue, Thu, Sat, 08:30 AM - 01:30 PM',
     rating: '4.88 (142 reviews)',
-    image: 'assets/images/doctors/dr-marcus-orthopedics.webp',
+    image: 'Assets/images/doctors/dr-marcus-orthopedics.webp',
     bio: 'Pioneering robotic joint replacements and sports trauma arthroscopy. Dedicated to accelerating post-surgical rehabilitation and athletic recovery.',
     slots: ['09:00 AM', '11:45 AM', '01:00 PM']
   },
@@ -56,7 +56,7 @@ const DOCTORS_DATA = [
     experience: '10+ Years Experience',
     availability: 'Mon - Fri, 09:00 AM - 03:00 PM',
     rating: '4.98 (310 reviews)',
-    image: 'assets/images/doctors/dr-elena-pediatrics.webp',
+    image: 'Assets/images/doctors/dr-elena-pediatrics.webp',
     bio: 'Compassionate pediatric healthcare focusing on neonatal care, developmental milestones, vaccination schedules, and adolescent wellness.',
     slots: ['10:00 AM', '11:30 AM', '02:00 PM']
   },
@@ -70,7 +70,7 @@ const DOCTORS_DATA = [
     experience: '15+ Years Experience',
     availability: 'Daily, 08:00 AM - 02:00 PM',
     rating: '4.92 (275 reviews)',
-    image: 'assets/images/doctors/dr-priya-medicine.webp',
+    image: 'Assets/images/doctors/dr-priya-medicine.webp',
     bio: 'Holistic chronic illness management, diabetic care, endocrine health, and preventative wellness examinations tailored to long-term health.',
     slots: ['08:30 AM', '11:00 AM', '01:15 PM']
   },
@@ -84,7 +84,7 @@ const DOCTORS_DATA = [
     experience: '13+ Years Experience',
     availability: 'Mon - Fri, 09:00 AM - 05:00 PM',
     rating: '4.85 (119 reviews)',
-    image: 'assets/images/doctors/dr-david-diagnostics.webp',
+    image: 'Assets/images/doctors/dr-david-diagnostics.webp',
     bio: 'Leading high-precision 3T MRI interpretation, PET-CT scans, and early pathology screening with artificial intelligence diagnostics assistance.',
     slots: ['09:45 AM', '01:30 PM', '04:00 PM']
   },
@@ -98,7 +98,7 @@ const DOCTORS_DATA = [
     experience: '11+ Years Experience',
     availability: 'Tue, Wed, Fri, 10:00 AM - 03:00 PM',
     rating: '4.91 (160 reviews)',
-    image: 'assets/images/doctors/dr-ananya-oncology.webp',
+    image: 'Assets/images/doctors/dr-ananya-oncology.webp',
     bio: 'Specialist in cardiac arrhythmias, pacemaker implantations, and catheter ablation therapies with advanced 3D cardiac mapping.',
     slots: ['10:30 AM', '12:00 PM', '02:30 PM']
   },
@@ -112,7 +112,7 @@ const DOCTORS_DATA = [
     experience: '9+ Years Experience',
     availability: 'Mon, Wed, Thu, 09:00 AM - 01:00 PM',
     rating: '4.89 (135 reviews)',
-    image: 'assets/images/doctors/dr-michael-surgery.webp',
+    image: 'Assets/images/doctors/dr-michael-surgery.webp',
     bio: 'Focused on complex spinal deformities, endoscopic disc surgery, and sports medicine biomechanics.',
     slots: ['09:15 AM', '10:45 AM', '12:30 PM']
   }
