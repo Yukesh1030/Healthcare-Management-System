@@ -58,10 +58,11 @@
 }
 
 .sidebar-logo {
-  height: 30px;
-  background: #FFFFFF;
-  padding: 4px 8px;
-  border-radius: 6px;
+  height: 32px;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  display: block;
 }
 
 .sidebar-role-badge {
