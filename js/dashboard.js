@@ -5,6 +5,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initDynamicUserProfile();
   initDashboardSidebar();
   initDashboardTabs();
   initRefreshControl();
@@ -193,6 +194,100 @@ function initTableSearch() {
         const text = row.innerText.toLowerCase();
         row.style.display = text.includes(term) ? '' : 'none';
       });
+    });
+  });
+}
+
+/**
+ * Dynamic User Profile on Dashboard Sidebar & Content
+ * Displays the dynamic email, username, and avatar used during login across both dashboards
+ */
+function initDynamicUserProfile() {
+  const storedEmail = sessionStorage.getItem('stackly_user_email') || localStorage.getItem('stackly_user_email');
+  let storedName = sessionStorage.getItem('stackly_user_name') || localStorage.getItem('stackly_user_name');
+  const isClient = window.location.pathname.toLowerCase().includes('client') || window.location.pathname.toLowerCase().includes('patient');
+
+  let userEmail = storedEmail;
+  if (!userEmail) {
+    userEmail = isClient ? 'patient@example.com' : 'admin@stacklyhealth.com';
+  }
+
+  // Determine user name
+  let userName = storedName;
+  if (!userName && userEmail) {
+    const registeredName = localStorage.getItem('stackly_user_' + userEmail.toLowerCase());
+    if (registeredName) {
+      userName = registeredName;
+    } else if (userEmail.toLowerCase() === 'admin@stacklyhealth.com') {
+      userName = 'Clinical Admin';
+    } else if (userEmail.toLowerCase() === 'patient@example.com' || userEmail.toLowerCase() === 'user@example.com') {
+      userName = isClient ? 'Patient User' : 'Clinical Admin';
+    } else {
+      const prefix = userEmail.split('@')[0];
+      userName = prefix
+        .replace(/[._-]+/g, ' ')
+        .trim()
+        .split(' ')
+        .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(' ');
+    }
+  }
+
+  if (!userName) {
+    userName = isClient ? 'Patient User' : 'Clinical Admin';
+  }
+
+  // Update all sidebar email elements
+  document.querySelectorAll('.sidebar-user-email').forEach(el => {
+    el.textContent = userEmail;
+  });
+
+  // Update all sidebar name elements & greeting
+  document.querySelectorAll('.sidebar-user-name').forEach(el => {
+    el.textContent = userName;
+  });
+  const patientGreeting = document.getElementById('patient-greeting-name');
+  if (patientGreeting) {
+    patientGreeting.textContent = userName;
+  }
+
+  // Generate dynamic 2-letter uppercase avatar initials
+  const parts = userName.trim().split(/\s+/);
+  let initials = '';
+  if (parts.length >= 2) {
+    initials = (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  } else if (parts.length === 1 && parts[0].length >= 2) {
+    initials = parts[0].slice(0, 2).toUpperCase();
+  } else if (parts.length === 1 && parts[0].length === 1) {
+    initials = parts[0].toUpperCase();
+  } else {
+    initials = isClient ? 'PT' : 'AD';
+  }
+
+  document.querySelectorAll('.sidebar-user-avatar').forEach(el => {
+    el.textContent = initials;
+  });
+
+  // Sync profile and settings form inputs if present
+  const profileNameInput = document.getElementById('profile-full-name');
+  const profileEmailInput = document.getElementById('profile-email-address');
+  if (profileNameInput) profileNameInput.value = userName;
+  if (profileEmailInput) profileEmailInput.value = userEmail;
+
+  const adminNameInput = document.getElementById('admin-display-name');
+  const adminEmailInput = document.getElementById('admin-email-alerts');
+  if (adminNameInput) adminNameInput.value = userName;
+  if (adminEmailInput) adminEmailInput.value = userEmail;
+
+  // Sign out button handler to clear session
+  document.querySelectorAll('.sidebar-logout-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      sessionStorage.removeItem('stackly_user_name');
+      sessionStorage.removeItem('stackly_user_email');
+      sessionStorage.removeItem('stackly_user_role');
+      localStorage.removeItem('stackly_user_name');
+      localStorage.removeItem('stackly_user_email');
+      localStorage.removeItem('stackly_user_role');
     });
   });
 }

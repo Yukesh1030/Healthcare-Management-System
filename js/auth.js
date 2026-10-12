@@ -124,6 +124,29 @@ function initLoginForm() {
   const passwordInput = document.getElementById('login-password');
   const alertEl = document.getElementById('login-alert');
 
+  // Pre-fill previously used email or set default
+  const savedRole = sessionStorage.getItem('stackly_user_role') || localStorage.getItem('stackly_user_role');
+  const savedEmail = sessionStorage.getItem('stackly_user_email') || localStorage.getItem('stackly_user_email');
+  if (savedRole && roleSelect) roleSelect.value = savedRole;
+  if (savedEmail && emailInput) {
+    emailInput.value = savedEmail;
+  } else if (emailInput && roleSelect) {
+    emailInput.value = roleSelect.value === 'Admin' ? 'admin@stacklyhealth.com' : 'patient@example.com';
+    emailInput.placeholder = roleSelect.value === 'Admin' ? 'admin@stacklyhealth.com' : 'patient@example.com';
+  }
+
+  // Switch default email on role toggle
+  if (roleSelect && emailInput) {
+    roleSelect.addEventListener('change', () => {
+      const isAdm = roleSelect.value === 'Admin';
+      const cur = emailInput.value.trim().toLowerCase();
+      if (!cur || cur === 'patient@example.com' || cur === 'admin@stacklyhealth.com' || cur === 'user@example.com') {
+        emailInput.value = isAdm ? 'admin@stacklyhealth.com' : 'patient@example.com';
+        emailInput.placeholder = isAdm ? 'admin@stacklyhealth.com' : 'patient@example.com';
+      }
+    });
+  }
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     let hasError = false;
@@ -154,13 +177,38 @@ function initLoginForm() {
 
     // Button loading state
     const submitBtn = form.querySelector('.auth-submit-btn');
-    const originalText = submitBtn.innerText;
     submitBtn.innerText = 'Signing In...';
     submitBtn.disabled = true;
 
-    // Store authenticated role in sessionStorage for dashboard greetings
+    // Derive username from email or check registered account
+    let userName = localStorage.getItem('stackly_user_' + emailVal.toLowerCase());
+    if (!userName) {
+      if (emailVal.toLowerCase() === 'admin@stacklyhealth.com') {
+        userName = 'Clinical Admin';
+      } else if (emailVal.toLowerCase() === 'patient@example.com' || emailVal.toLowerCase() === 'user@example.com') {
+        userName = selectedRole === 'Admin' ? 'Clinical Admin' : 'Patient User';
+      } else {
+        const prefix = emailVal.split('@')[0];
+        userName = prefix
+          .replace(/[._-]+/g, ' ')
+          .trim()
+          .split(' ')
+          .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+          .join(' ');
+        if (!userName) {
+          userName = selectedRole === 'Admin' ? 'Clinical Admin' : 'Patient User';
+        }
+      }
+    }
+
+    // Store dynamic user session for dashboards
     sessionStorage.setItem('stackly_user_role', selectedRole);
     sessionStorage.setItem('stackly_user_email', emailVal);
+    sessionStorage.setItem('stackly_user_name', userName);
+
+    localStorage.setItem('stackly_user_role', selectedRole);
+    localStorage.setItem('stackly_user_email', emailVal);
+    localStorage.setItem('stackly_user_name', userName);
 
     setTimeout(() => {
       if (selectedRole === 'Admin') {
@@ -224,10 +272,22 @@ function initSignupForm() {
 
     if (hasError) return;
 
+    const nameVal = nameInput.value.trim();
+    const roleVal = roleSelect ? roleSelect.value : 'Client';
+
     // Success State
     const submitBtn = form.querySelector('.auth-submit-btn');
     submitBtn.innerText = 'Creating Account...';
     submitBtn.disabled = true;
+
+    // Persist registered credentials
+    localStorage.setItem('stackly_user_' + emailVal.toLowerCase(), nameVal);
+    sessionStorage.setItem('stackly_user_role', roleVal);
+    sessionStorage.setItem('stackly_user_email', emailVal);
+    sessionStorage.setItem('stackly_user_name', nameVal);
+    localStorage.setItem('stackly_user_role', roleVal);
+    localStorage.setItem('stackly_user_email', emailVal);
+    localStorage.setItem('stackly_user_name', nameVal);
 
     if (alertSuccess) {
       alertSuccess.style.display = 'flex';
