@@ -20,52 +20,6 @@
 </head>
 <body>
 
-  <!-- =========================================================================
-       SITE NAVBAR
-       ========================================================================= -->
-  <header class="site-header" id="main-header">
-    <div class="nav-container">
-      <a href="index.html" class="brand-link" id="brand-logo-link">
-        <img src="Assets/Brand-logo.webp" alt="STACKLY Healthcare Logo" class="brand-logo-img" width="160" height="38">
-      </a>
-
-      <!-- 5 Centered Navlinks -->
-      <nav class="nav-menu" aria-label="Main Navigation">
-        <a href="index.html" class="nav-link" id="nav-home">Home</a>
-        <a href="Service.html" class="nav-link" id="nav-services">Services</a>
-        <a href="Doctors.html" class="nav-link" id="nav-doctors">Doctors</a>
-        <a href="About.html" class="nav-link" id="nav-about">About</a>
-        <a href="Contact.html" class="nav-link" id="nav-contact">Contact</a>
-      </nav>
-
-      <!-- Right Login Button & Mobile Toggle -->
-      <div class="nav-actions">
-        <a href="Login.html" class="nav-login-btn" id="nav-login-btn">
-          <i class="fa-regular fa-user"></i>
-          <span>Login</span>
-        </a>
-      </div>
-
-      <button class="mobile-nav-toggle" id="mobile-toggle-btn" aria-label="Toggle navigation menu">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </div>
-
-    <!-- Mobile Nav Overlay -->
-    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="Service.html" class="nav-link">Services</a>
-      <a href="Doctors.html" class="nav-link">Doctors</a>
-      <a href="About.html" class="nav-link">About</a>
-      <a href="Contact.html" class="nav-link">Contact</a>
-      <a href="appointments.html" class="nav-link" style="color: var(--accent);">Book Appointment</a>
-      <a href="Login.html" class="nav-login-btn">
-        <i class="fa-regular fa-user"></i>
-        <span>Login</span>
-      </a>
-    </div>
-  </header>
-
   <main>
     <!-- =======================================================================
          CUSTOM 404 SECTION
@@ -73,17 +27,23 @@
          ======================================================================= -->
     <section class="error-404-section" id="error-section">
       <div class="error-404-card" id="error-card">
+        <div class="error-brand" id="error-brand">
+          <a href="index.html" class="brand-link" aria-label="Return to STACKLY Healthcare Home">
+            <img src="Assets/Brand-logo.webp" alt="STACKLY Healthcare Logo" class="brand-logo-img" width="160" height="38">
+          </a>
+        </div>
+
         <div class="error-pulse-icon" id="error-icon">
           <i class="fa-solid fa-stethoscope"></i>
         </div>
 
         <div class="error-code-badge" id="error-code">404</div>
 
-        <h1 class="serif-heading" id="error-title" style="font-size: 2.2rem; margin-bottom: 14px; color: var(--primary);">
+        <h1 class="serif-heading" id="error-title" style="font-size: 2.2rem; margin-bottom: 12px; color: var(--primary);">
           Clinical Route Not Found
         </h1>
 
-        <p id="error-desc" style="font-size: 1.05rem; color: var(--primary-muted); max-width: 520px; margin: 0 auto 30px auto; line-height: 1.7;">
+        <p id="error-desc" style="font-size: 1.05rem; color: var(--primary-muted); max-width: 520px; margin: 0 auto 20px auto; line-height: 1.7;">
           The page or medical file you are looking for has been moved, relocated, or is currently under scheduled coordination.
         </p>
 
@@ -103,75 +63,6 @@
     </section>
   </main>
 
-  <!-- =========================================================================
-       SHARED FOOTER
-       ========================================================================= -->
-  <footer class="site-footer" id="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <a href="index.html" class="footer-logo-link">
-            <img src="Assets/Brand-logo-light.webp" alt="STACKLY Healthcare Logo" class="footer-logo-img" width="160" height="38">
-          </a>
-          <p class="footer-desc">
-            STACKLY Healthcare coordinates compassionate physician care, state-of-the-art diagnostics, and digitized patient management across premier clinical centers.
-          </p>
-          <div class="footer-socials">
-            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="404.html" class="social-icon-btn" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="404.html" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          </div>
-        </div>
-
-        <div class="footer-col">
-          <h4 class="footer-heading">Quick Links</h4>
-          <ul class="footer-links-list">
-            <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
-            <li><a href="Service.html"><i class="fa-solid fa-angle-right"></i> Services</a></li>
-            <li><a href="Doctors.html"><i class="fa-solid fa-angle-right"></i> Doctors</a></li>
-            <li><a href="About.html"><i class="fa-solid fa-angle-right"></i> About</a></li>
-            <li><a href="Contact.html"><i class="fa-solid fa-angle-right"></i> Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4 class="footer-heading">Specialties</h4>
-          <ul class="footer-links-list">
-            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Cardiology Center</a></li>
-            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Neurology & Spine</a></li>
-            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Orthopedic Surgery</a></li>
-            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Pediatric Wellness</a></li>
-            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> 3T MRI & Imaging</a></li>
-            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Clinical Pathology</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4 class="footer-heading">Patient Care</h4>
-          <ul class="footer-links-list">
-            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Privacy Policy</a></li>
-            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Terms of Service</a></li>
-            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Accessibility Statement</a></li>
-            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Insurance & Billing</a></li>
-            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Patient Rights</a></li>
-            <li><a href="404.html"><i class="fa-solid fa-angle-right"></i> Medical Research</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2026 STACKLY Healthcare Management System. All rights reserved.</p>
-        <div class="footer-legal-links">
-          <a href="404.html">Privacy</a>
-          <a href="404.html">Terms</a>
-          <a href="404.html">Accessibility</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
   <!-- GSAP & ScrollTrigger from CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -183,6 +74,7 @@
       if (typeof gsap !== 'undefined') {
         const tl = gsap.timeline({ defaults: { ease: 'back.out(1.7)' } });
         tl.from('#error-card', { scale: 0.85, opacity: 0, duration: 0.8 })
+          .from('#error-brand', { y: -15, opacity: 0, duration: 0.5 }, '-=0.5')
           .from('#error-icon', { scale: 0, rotation: -45, duration: 0.6 }, '-=0.4')
           .from('#error-code', { y: 30, opacity: 0, duration: 0.7 }, '-=0.3')
           .from('#error-title', { y: 20, opacity: 0, duration: 0.5 }, '-=0.4')
