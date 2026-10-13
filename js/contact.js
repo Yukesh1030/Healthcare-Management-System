@@ -73,15 +73,18 @@ function initContactForm() {
       return;
     }
 
-    // Success State
+    // Success State - redirect to 404.html after validation passes
     if (successBanner) {
       successBanner.style.display = 'flex';
       form.reset();
       form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      setTimeout(() => {
-        successBanner.style.display = 'none';
-      }, 7000);
     }
+    if (typeof showToast === 'function') {
+      showToast('Inquiry verified! Redirecting...', 'fa-circle-check');
+    }
+    setTimeout(() => {
+      window.location.href = '404.html';
+    }, 1200);
   });
 
   function showFieldError(input, msg) {

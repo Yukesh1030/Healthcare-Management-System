@@ -172,7 +172,7 @@ function initDoctorsDirectory(container) {
             <button class="btn btn-outline btn-sm view-profile-btn" data-doc-id="${doc.id}">
               View Profile
             </button>
-            <a href="appointments.html?doctor=${doc.id}" class="btn btn-primary btn-sm">
+            <a href="404.html" class="btn btn-primary btn-sm">
               Book Visit
             </a>
           </div>
@@ -293,7 +293,7 @@ function openDoctorModal(docId) {
           </div>
 
           <div style="display: flex; gap: 12px;">
-            <a href="appointments.html?doctor=${doc.id}" class="btn btn-primary" style="flex: 1; padding: 14px; text-align: center;">
+            <a href="404.html" class="btn btn-primary" style="flex: 1; padding: 14px; text-align: center;">
               Book Appointment with ${doc.name}
             </a>
           </div>
