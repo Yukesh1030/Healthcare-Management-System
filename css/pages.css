@@ -97,6 +97,21 @@
   margin-bottom: 48px;
 }
 
+#hero-services-btn {
+  background-color: var(--surface-white);
+  color: var(--primary);
+  border: 1.5px solid var(--surface-white);
+  box-shadow: 0 4px 16px rgba(10, 36, 43, 0.2);
+}
+
+#hero-services-btn:hover {
+  background-color: var(--primary);
+  color: var(--bg-surface);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px rgba(18, 60, 70, 0.4);
+  transform: translateY(-2px);
+}
+
 .hero-highlights {
   display: flex;
   align-items: center;
